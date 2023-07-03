@@ -15,7 +15,7 @@ export default function Home() {
                     <p className="mt-5" >
                         login to access the all study material
                     </p>
-                    <button className="border border-black px-4 py-2 mt-28  hover:bg-yellow-300 hover:border-white " >
+                    <button className="border border-black px-4 py-2 mt-28 rounded-md hover:bg-yellow-300 hover:border-white " >
                         Get started
                     </button>
                     <img src={img1} className='w-[40%] h-80 absolute right-28 top-36 max-[516px]:top-60 max-[600px]:right-4 max-[600px]:w-[60%] max-[653px]:top-48 max-[653px]:right-16' />
