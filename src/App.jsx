@@ -7,6 +7,8 @@ import Departments from './Components/Departments'
 import Semesters from './Components/Semesters'
 import SignUp from './Components/SignUp'
 import Login from './Components/Login'
+import AdminDashB from './Components/AdminDashB'
+import PostsForm from './Components/PostsForm'
 function App() {
 
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route exact path="/Semesters" element={<Semesters />}></Route>
         <Route exact path="/SignUp" element={<SignUp />}></Route>
         <Route exact path="/Login" element={<Login />}></Route>
+        <Route exact path="/AdminDashB" element={<AdminDashB />}></Route>
+        <Route exact path="/PostsForm" element={<PostsForm />}></Route>
       </Routes>
       <Footer />
       </BrowserRouter>
