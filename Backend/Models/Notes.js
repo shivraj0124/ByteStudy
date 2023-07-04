@@ -1,19 +1,18 @@
-const mongoose = require("mongoose")
-const notesschema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    link: {
-        type: String,
-        required: true
-    },
-    subject: [{
-        type: mongoose.Schema.Types.Objectid,
-        ref: "Subject"
-    }],
+const mongoose = require("mongoose");
+const notesSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  link: {
+    type: String,
+    required: true
+  },
+  subject: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Subject"
+  }]
+});
 
-})
-
-const notes = mongoose.model("Notes", notesschema)
-module.exports = notes;
+const Notes = mongoose.model("Notes", notesSchema);
+module.exports = Notes;
