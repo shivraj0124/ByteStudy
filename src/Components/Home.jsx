@@ -2,13 +2,13 @@ import img1 from '../Images/studymaterial.png'
 import img2 from '../Images/notesImg.png'
 import img3 from '../Images/questionPImg.png'
 import img4 from '../Images/experimentsImg.png'
-import img5 from '../Images/userlog.png'
-import img6 from '../Images/adminlog.png'
+// import img5 from '../Images/userlog.png'
+// import img6 from '../Images/adminlog.png'
 export default function Home() {
     return (
         <>
             <div className="w-[100%]  h-full px-[10%] py-12 mr-0" >
-                <div className="mt-2" >
+                <div className="mt-10" >
                     <h2 className="text-4xl text-gray-600"  >
                         Get your notes & question paper <br />and make your study easy
                     </h2>
@@ -22,7 +22,7 @@ export default function Home() {
                 </div>
                 {/* Services */}
 
-                <div className='w-full mt-32 bg-white '>
+                <div className='w-full mt-36 bg-white '>
                     <div className='max-w-[1240px]  grid md:grid-cols-3 gap-8'>
                         <div className='w-full  flex flex-col my-4 rounded-lg hover:scale-105 duration-300'>
                             <img className='w-[100%] h-[80%] mx-auto mt-[-3rem] bg-white' src={img2} alt="/" />
@@ -50,7 +50,7 @@ export default function Home() {
             {/* Logins */}
 
 
-                <div className='justify-center text-center mt-10' >
+                {/* <div className='justify-center text-center mt-10' >
                     <h1 className='text-2xl font-bold m-auto' >Login to ByteStudy</h1>
                 </div>
 
@@ -70,11 +70,13 @@ export default function Home() {
                         </div>
 
 
-                    </div>
+                    </div> 
 
-                </div>
+    </div>*/}
                 
         </div >
         </>
     )
 }
+
+// <div className="w-30 h-100 border border-gray-400 bg-gray-300 p-5 py-20 text-2xl text-center rounded-md hover:bg-amber-400 text-amber-400 hover:text-[#27374D] cursor-pointer font-semibold">Semester I</div>
