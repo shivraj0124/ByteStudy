@@ -9,14 +9,12 @@ import SignUp from './Components/SignUp'
 import Login from './Components/Login'
 import AdminDashB from './Components/AdminDashB'
 import PostsForm from './Components/PostsForm'
+import { Stprovider } from './Components/StudyContext'
 function App() {
 
   return (
     <>
-      
-        
-      
-     
+      <Stprovider >
       <BrowserRouter>
       <Navbar/>
       <Routes>
@@ -30,7 +28,7 @@ function App() {
       </Routes>
       <Footer />
       </BrowserRouter>
-     
+      </Stprovider>     
     </>
   )
 }

@@ -5,13 +5,15 @@ import img3 from '../Images/questionPImg.png'
 import img4 from '../Images/experimentsImg.png'
 import PostHook from './StudyContext'
 import {useNavigate} from 'react-router-dom'
+
 export default function AdminDashB(){
     const navigate = useNavigate()
-    const {setPosts} = PostHook()
+    const {setPostsP} = PostHook()
 
     const handleOnclick =(e)=>{
-        console.log(e);
-       setPosts('notes')
+        const innerHtml = e.target.innerHTML
+        console.log(innerHtml)
+        setPostsP(innerHtml)
         navigate('/PostsForm')
     }
     return(
@@ -23,18 +25,18 @@ export default function AdminDashB(){
                         <div className='w-full  flex flex-col my-4 rounded-lg hover:scale-105 duration-300' >
                             <img className='w-[100%] h-[80%] mx-auto mt-[-3rem] bg-white' src={img2} alt="/" />
                             
-                                <h2 className='text-2xl text-center' onClick={handleOnclick}>Notes</h2>
+                                <h2 className='text-2xl text-center cursor-pointer' onClick={handleOnclick} >Notes</h2>
                         </div>
 
                         <div className='w-full flex flex-col my-4 rounded-lg hover:scale-105 duration-300'>
                             <img className='w-[100%] h-[80%] mx-auto mt-[-3rem] bg-white' src={img3} alt="/" />
-                            <h2 className='text-2xl text-center'>Question Papers</h2>
+                            <h2 className='text-2xl text-center cursor-pointer' onClick={handleOnclick} >Question Papers</h2>
 
                         </div>
 
                         <div className='w-full  flex flex-col my-4 rounded-lg hover:scale-105 duration-300'>
                             <img className='w-[100%] h-[80%] mx-auto mt-[-3rem] bg-white' src={img4} alt="/" />
-                            <h2 className='text-2xl text-center'>Experiment</h2>
+                            <h2 className='text-2xl text-center cursor-pointer' onClick={handleOnclick} >Experiment</h2>
 
                         </div>
 
@@ -42,6 +44,7 @@ export default function AdminDashB(){
                 </div>
 
     </div>
+            
     </>
     )
 }

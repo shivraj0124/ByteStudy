@@ -2,11 +2,14 @@ import React,{createContext,useContext,useState} from 'react'
 
 const StudyContext =createContext();
 
-export default function StProvider({ children }){
+export const  Stprovider=({ children })=>{
     const [posts,setPosts]=useState(" ")
+    const setPostsP = (fnd) => {
+        setPosts(fnd)
+    }
     const value={
         posts,
-        setPosts
+        setPostsP
     }
     return <StudyContext.Provider value={value}>
         {children}
@@ -14,5 +17,11 @@ export default function StProvider({ children }){
 }
 const PostHook =()=>{
     const context = useContext(StudyContext);
+    if (context == undefined) {
+        throw new Error('hook is not working');
+    }
     return context
+    
 }
+
+export default PostHook
