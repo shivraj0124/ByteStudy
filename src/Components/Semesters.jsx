@@ -35,18 +35,7 @@ export default function Semesters() {
                         >
                            Sem {semester.number} - {semester.Department && semester.Department.name}
                         </div>
-                    ))}
-
-<<<<<<< HEAD
-                    <div className="w-30 h-100 bg-blue-100 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold ">Semester I</div>
-                    <div className="w-30 h-100 bg-blue-100 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold ">Semester II</div>
-                    <div className="w-30 h-100 bg-blue-100 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold ">Semester III</div>
-                    <div className="w-30 h-100 bg-blue-100 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold ">Semester IV</div>
-                    <div className="w-30 h-100 bg-blue-100 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold ">Semester V</div>
-                   
-=======
-
->>>>>>> 52ba5514b8c81f771dca56d72ea21376ef9af468
+                    ))}                   
                 </div>
             </div>
         </>

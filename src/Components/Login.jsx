@@ -4,9 +4,9 @@ export default function SignUp() {
     return (
         <>
             <div className="w-100 mt-16 justify-center px-5 lg:px-72 md:pb-52 max-md:pb-16" >
-                <div className="w-[100%] flex md:flex-row max-md:flex-col p-3 bg-slate-300 rounded-md" >
+                <div className="w-[100%] flex md:flex-row max-md:flex-col-reverse p-3 bg-slate-300 rounded-md" >
                     <div className="w-[60%] max-md:w-[100%] max-md:pb-16 h-auto text-center text-2xl font-semibold p-2 bg-slate-200" >
-                        <h1 className='font underline underline-offset-2' >Login</h1>
+                        <h1 className='font underline underline-offset-2 max-md:mt-5' >Login</h1>
                         <div className='mt-7 ' >
                            
                             <input
@@ -26,7 +26,7 @@ export default function SignUp() {
                         </div>
 
                     </div>
-                    <div className="w-[40%] max-md:w-[100%] h-auto bg-slate-200 "><img src={img1} className='h-96 w-100 max-md:w-[100%] rounded-md' /></div>
+                    <div className="w-[40%] max-md:w-[100%] h-auto bg-slate-200 "><img src={img1} className='h-96 w-100 max-md:w-[100%] max-md:h-52 rounded-md' /></div>
                 </div>
             </div>
 
