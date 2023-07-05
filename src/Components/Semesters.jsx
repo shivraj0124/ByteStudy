@@ -36,6 +36,7 @@ export default function Semesters() {
                            Sem {semester.number} - {semester.Department && semester.Department.name}
                         </div>
                     ))}                   
+
                 </div>
             </div>
         </>
