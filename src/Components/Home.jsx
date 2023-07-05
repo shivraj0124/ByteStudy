@@ -4,7 +4,10 @@ import img3 from '../Images/questionPImg.png'
 import img4 from '../Images/experimentsImg.png'
 // import img5 from '../Images/userlog.png'
 // import img6 from '../Images/adminlog.png'
+import { useNavigate } from "react-router-dom"
 export default function Home() {
+
+    const navigate = useNavigate();
     return (
         <>
             <div className="w-[100%]  h-full px-[10%] py-12 mr-0" >
@@ -15,7 +18,7 @@ export default function Home() {
                     <p className="mt-5" >
                         login to access the all study material
                     </p>
-                    <button className="border border-black px-4 py-2 mt-28 rounded-md hover:bg-yellow-300 hover:border-white " >
+                    <button onClick={()=>navigate("/Departments")} className="border border-black px-4 py-2 mt-28 rounded-md hover:bg-yellow-300 hover:border-white " >
                         Get started
                     </button>
                     <img src={img1} className='w-[40%] h-80 absolute right-28 top-36 max-[516px]:top-60 max-[600px]:right-4 max-[600px]:w-[60%] max-[653px]:top-48 max-[653px]:right-16' />
@@ -41,13 +44,13 @@ export default function Home() {
                             <h2 className='text-2xl text-center'>Experiment</h2>
 
                         </div>
-                    
+
                     </div>
                 </div>
 
 
 
-            {/* Logins */}
+                {/* Logins */}
 
 
                 {/* <div className='justify-center text-center mt-10' >
@@ -73,8 +76,8 @@ export default function Home() {
                     </div> 
 
     </div>*/}
-                
-        </div >
+
+            </div >
         </>
     )
 }

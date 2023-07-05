@@ -3,8 +3,12 @@ const app = express();
 const mongoose = require("mongoose");
 const d = require("./Models/Department");
 const admin = require("./Routers/Admin");
+const user =require("./Routers/User")
 app.use(express.json());
+const cors=require("cors")
 
+
+app.use(cors());
 var mongoDB ="mongodb+srv://bytedevs2121:hOcrlw04HQFxrGwg@cluster0.vwunbbd.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
@@ -20,6 +24,8 @@ mongoose
   });
 
 app.use("/api/v1", admin);
+
+app.use("/api/v2",user);
 
 app.listen(5000, () => {
   console.log("running");
