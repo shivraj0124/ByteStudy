@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home/>}></Route>
         <Route exact path="/Departments" element={<Departments />}></Route>
-        <Route exact path="/Semesters" element={<Semesters />}></Route>
+        <Route exact path="/Semesters/:id" element={<Semesters />}></Route>
         <Route exact path="/SignUp" element={<SignUp />}></Route>
         <Route exact path="/Login" element={<Login />}></Route>
         <Route exact path="/AdminDashB" element={<AdminDashB />}></Route>
