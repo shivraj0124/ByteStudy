@@ -8,8 +8,8 @@ import Departments from './Components/Departments'
 import Semesters from './Components/Semesters'
 import SignUp from './Components/SignUp'
 import Login from './Components/Login'
-import AdminDashB from './Components/Admin/AdminDashB'
-import PostsForm from './Components/Admin/PostsForm'
+import AdminLayout from './Components/Admin/AdminLayout'
+// import PostsForm from './Components/Admin/PostsForm'
 import { Stprovider } from './Components/StudyContext'
 import Layout from './Components/Layout'
 import Subjects from "./Components/Subjects"
@@ -29,8 +29,8 @@ function App() {
               <Route exact path="/SignUp" element={<SignUp />}></Route>
               <Route exact path="/Login" element={<Login />}></Route>
             </Route>
-            <Route exact path="/AdminDashB" element={<AdminDashB />}></Route>
-            <Route exact path="/PostsForm" element={<PostsForm />}></Route>
+            <Route  path="/Admin" element={<AdminLayout />}>
+            </Route>
           </Routes>
           <Footer />
         </BrowserRouter>

@@ -34,9 +34,9 @@ export default function SignUp() {
                             className="w-[80%] border-b-2 border-blue-300 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                             name="confirmPassword"
                             placeholder="Confirm Password" />
-                        <button className='w-[80%] mt-8 p-2 text-lg bg-yellow-400'>SignUp</button>    
+                            <button className='w-[80%] mt-8 p-2 text-lg bg-yellow-400 hover:bg-yellow-300'>SignUp</button>    
 
-                        <p className='text-sm font-normal mt-6 max-md:mt-8' >Already have an account ?<Link  className='text-blue-600' to='/Login '>Login here</Link></p>    
+                        <p className='text-sm font-normal mt-6 max-md:mt-8' >Already have an account ? <Link  className='text-blue-600' to='/Login '>Login here</Link></p>    
                         </div>    
 
                     </div>

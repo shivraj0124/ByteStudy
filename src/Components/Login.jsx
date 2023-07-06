@@ -20,10 +20,10 @@ export default function SignUp() {
                                 className="w-[80%] border-b-2 border-blue-300  text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3 md:mt-5"
                                 name="fullname"
                                 placeholder="Password" />
-                            <button className='w-[80%] mt-12 p-2 text-lg bg-yellow-400'>Login</button>
+                            <button className='w-[80%] mt-12 p-2 text-lg bg-yellow-400 hover:bg-yellow-300'>Login</button>
                             
 
-                            <p className='text-sm font-normal mt-16 max-md:mt-8' >Don't have an account ?<Link className='text-blue-600' to='/SignUp '>Create Account</Link></p>
+                            <p className='text-sm font-normal mt-16 max-md:mt-8' >Don't have an account ? <Link className='text-blue-600' to='/SignUp '>Create Account</Link></p>
                         </div>
 
                     </div>

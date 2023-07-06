@@ -38,9 +38,6 @@ export default function Departments() {
                             {subject.name}<br/> sem -{subject.semester.number}
                         </div>
                     ))}
-
-
-
                 </div>
             </div>
         </>

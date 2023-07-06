@@ -7,7 +7,6 @@ const Navbar = () => {
     const handleNav = () => {
         setNav(!nav);
     };
-    // text-[#FFE700]
     return (
         <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto mt-0 px-4 text-black'>
             <h1 className='w-full text-3xl font-bold underline underline-offset-2 decoration-wavy decoration-yellow-400'>ByteStudy</h1>

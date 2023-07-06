@@ -42,9 +42,7 @@ export default function Home() {
                         <div className='w-full  flex flex-col my-4 rounded-lg hover:scale-105 duration-300'>
                             <img className='w-[100%] h-[80%] mx-auto mt-[-3rem] bg-white' src={img4} alt="/" />
                             <h2 className='text-2xl text-center'>Experiment</h2>
-
                         </div>
-
                     </div>
                 </div>
 
@@ -71,12 +69,8 @@ export default function Home() {
                             <h2 className='text-xl  text-center bg-white px-2 mt-[4%] py-2 rounded-md cursor-pointer'>Admin Login</h2>
 
                         </div>
-
-
                     </div> 
-
     </div>*/}
-
             </div >
         </>
     )
