@@ -11,6 +11,7 @@ import AdminDashB from './Components/Admin/AdminDashB'
 import PostsForm from './Components/Admin/PostsForm'
 import { Stprovider } from './Components/StudyContext'
 import Layout from './Components/Layout'
+import Subjects from "./Components/Subjects"
 function App() {
 
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route exact path="/" element={<Home />}></Route>
               <Route exact path="/Departments" element={<Departments />}></Route>
               <Route exact path="/Semesters/:id" element={<Semesters />}></Route>
+              <Route exact path="/Subjects/:id" element={<Subjects />}></Route>
               <Route exact path="/SignUp" element={<SignUp />}></Route>
               <Route exact path="/Login" element={<Login />}></Route>
             </Route>

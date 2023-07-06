@@ -4,14 +4,10 @@ const SubjectSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Department: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Department"
-  },
-  semester: [{
+  semester: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Semester"
-  }],
+  },
   notes: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Notes"
