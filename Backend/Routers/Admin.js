@@ -98,7 +98,7 @@ router.post("/create-notes", async (req, res) => {
 //get notes by subject
 router.get("/get-notes/:sub", async (req, res) => {
   const { sub } = req.params;
-  const notes = await notesmodel.find({ subject: sub });
+  const notes = await notesmodel.find({ subject: sub }).populate("subject");
   return res.json({ notes })
 })
 

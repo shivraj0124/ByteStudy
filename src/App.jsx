@@ -13,6 +13,7 @@ import AdminLayout from './Components/Admin/AdminLayout'
 import { Stprovider } from './Components/StudyContext'
 import Layout from './Components/Layout'
 import Subjects from "./Components/Subjects"
+import Notes from './Components/Notes'
 function App() {
 
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route exact path="/Departments" element={<Departments />}></Route>
               <Route exact path="/Semesters/:id" element={<Semesters />}></Route>
               <Route exact path="/Subjects/:id" element={<Subjects />}></Route>
+              <Route exact path="/Notes/:id" element={<Notes />}></Route>
               <Route exact path="/SignUp" element={<SignUp />}></Route>
               <Route exact path="/Login" element={<Login />}></Route>
             </Route>
