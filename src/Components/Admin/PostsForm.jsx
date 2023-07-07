@@ -74,7 +74,7 @@ export default function PostsForm() {
                 subject: selectedSub
             });
             if (data?.success) {
-               toast.success("Material created succesfully")
+               toast.success( `${posts} uploaded succesfully`)
             }
             else {
                 console.log(error)
@@ -105,17 +105,17 @@ export default function PostsForm() {
 
     return (
         <>
-            <div className="w-100 mt-16 justify-center px-5 lg:px-72 md:pb-52 max-md:pb-16">
+            <div className="w-100 mt-16 justify-center max-xl:px-2 xl:px-52 md:pb-52 max-md:pb-4">
                 <div className="w-[100%] flex md:flex-row max-md:flex-col p-3 bg-slate-300 rounded-md">
                     <div className="w-[40%] max-md:w-[100%] h-auto bg-slate-200">
                         <img src={img1} className="md:h-[100%] w-100 max-md:w-[100%] max-md:h-[20%] rounded-md" alt="Add Posts" />
                     </div>
                     <div className="w-[60%] max-md:w-[100%] max-md:h-[70%] max-md:pb-16 md:h-auto text-center text-2xl font-semibold p-10 max-md:p-5 bg-slate-200">
-                        <h1 className="font underline underline-offset-2">Add {posts}</h1>
-                        <div className="mt-10 text-xl font-normal">
-                            <div className="">
-                                <label>Select department</label>
-                                <Select className="w-full" id="dep" onChange={handleDepChange}>
+                        <h1 className="font underline underline-offset-2">Add New {posts}</h1>
+                        <div className="mt-10 text-xl justify-center font-normal">
+                            <div className="flex max-md:flex-col justify-center  items-center md:flex-row ">
+                                <label className='max-md:w-[100%] font-semibold'>Select department:</label>
+                                <Select className="max-md:w-[80%] md:w-[57%] h-max font-semibold text-2xl m-0 md:ml-1" id="dep" onChange={handleDepChange}>
                                     {dep.map((s) => (
                                         <Option key={s._id} value={s._id}>
                                             {s.name}
@@ -123,13 +123,13 @@ export default function PostsForm() {
                                     ))}
                                 </Select>
                             </div>
-                            <div className="mt-5">
-                                <label htmlFor="semesters" className="w-[80%]">
+                            <div className="mt-5 flex max-md:flex-col justify-center  items-center md:flex-row ">
+                                <label htmlFor="semesters" className='font-semibold'>
                                     Choose Semester:
                                 </label>
                                 <Select
                                     id="semesters"
-                                    className="w-max focus:outline-none"
+                                    className="max-md:w-[80%] md:w-[57%] font-semibold md:ml-3 focus:outline-none"
                                     value={selectedSem}
                                     onChange={handlesemchange}
                                 >
@@ -141,13 +141,13 @@ export default function PostsForm() {
                                     ))}
                                 </Select>
                             </div>
-                            <div className="mt-5">
-                                <label htmlFor="subjects" className="w-[80%]">
+                            <div className="mt-5 flex max-md:flex-col justify-center  items-center md:flex-row ">
+                                <label htmlFor="subjects " className='font-semibold'>
                                     Choose Subject:
                                 </label>
                                 <Select
                                     id="semesters"
-                                    className="w-max focus:outline-none"
+                                    className="max-md:w-[80%] md:w-[57%] font-semibold md:ml-7 focus:outline-none"
                                     value={selectedSub}
                                     onChange={handlesubchange}
                                 >
