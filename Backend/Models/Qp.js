@@ -10,9 +10,9 @@ const Qpschema = new mongoose.Schema({
   },
   subject: [
     {
-      type: mongoose.Schema.Types.Objectid,
+      type: mongoose.Schema.Types.ObjectId, // Corrected typo here
       ref: "Subject",
-    },
+    }
   ],
 });
 

@@ -68,7 +68,7 @@ export default function PostsForm() {
                 "name": name,
                 "link": link
             }
-            const { data } = await axios.post("http://localhost:5000/api/v1/create-notes", {
+            const { data } = await axios.post(`http://localhost:5000/api/v1/create-${posts}`, {
                 name: datta.name,
                 link: datta.link,
                 subject: selectedSub

@@ -4,7 +4,7 @@ const depmodel = require("../Models/Department")
 const semmodel = require("../Models/Semster")
 const submodel = require("../Models/Subject")
 const notesmodel = require("../Models/Notes")
-
+const qpmodel =require("../Models/Qp")
 
 //creating a department
 
@@ -88,7 +88,7 @@ router.get("/get-sub/:sem", async (req, res) => {
 });
 
 //create notes
-router.post("/create-notes", async (req, res) => {
+router.post("/create-Notes", async (req, res) => {
   const { name, link, subject } = req.body
   const notes = new notesmodel({ name: name, link: link, subject: subject });
   await notes.save();
@@ -104,6 +104,24 @@ router.get("/get-notes/:sub", async (req, res) => {
   const { sub } = req.params;
   const notes = await notesmodel.find({ subject: sub }).populate("subject");
   return res.json({ notes })
+})
+
+router.post("/create-QP", async (req, res) => {
+  const { name, link, subject } = req.body
+  const Qp = new qpmodel({ name: name, link: link, subject: subject });
+  await Qp.save();
+  return res.status(200).json({
+    message:"true",
+    success:true,
+    Qp
+  })
+});
+
+
+router.get("/get-Qp/:sub", async (req, res) => {
+  const { sub } = req.params;
+  const qp = await notesmodel.find({ subject: sub }).populate("subject");
+  return res.json({ qp })
 })
 
 module.exports = router
