@@ -43,9 +43,9 @@ export default function AdminDashB() {
                     </div>
                     <div className='flex flex-col text-lg m-8 list-none' >
                         <Link onClick={handleHome} to='/Admin' className='hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>Home</Link>
-                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>New Note</li>
-                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>New QP</li>
-                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>New Exp</li>
+                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Note</li>
+                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>QP</li>
+                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Exp</li>
                     </div>
                 </div>
 
@@ -56,9 +56,9 @@ export default function AdminDashB() {
                     </div>
                     <div className='flex flex-col md:hidden text-xl m-8 list-none' >
                         <Link onClick={handleHome} to='/Admin'  className='hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' >Home</Link>
-                        <li  className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>New Note</li>
-                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>New QP</li>
-                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>New Exp</li>
+                        <li  className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Note</li>
+                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>QP</li>
+                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Exp</li>
                     </div>
                 </div>
                 {/* main view */}
