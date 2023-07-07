@@ -92,7 +92,11 @@ router.post("/create-notes", async (req, res) => {
   const { name, link, subject } = req.body
   const notes = new notesmodel({ name: name, link: link, subject: subject });
   await notes.save();
-  return res.json(notes);
+  return res.status(200).json({
+    message:"true",
+    success:true,
+    notes
+  })
 });
 
 //get notes by subject
