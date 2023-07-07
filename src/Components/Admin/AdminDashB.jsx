@@ -44,24 +44,13 @@ export default function AdminDashB() {
                     <div className='flex flex-col text-lg m-8 list-none' >
                         <Link onClick={handleHome} to='/Admin' className='hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>Home</Link>
 
-                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Note</li>
+                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Notes</li>
                         <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>QP</li>
                         <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Exp</li>
                     </div>
                 </div>
 
-                <div className={nav ? ' max-md:h-[100%] fixed left-0 top-0 w-[70%] border-r  bg-white ease-in-out duration-500 p-10 z-40 md:hidden' : 'mt-0 ease-in-out duration-500 fixed left-[-100%] h-[100%] md:hidden'} onClick={handleNav} >
-                    <div className='flex flex-row ml-2'>
-                        <h1 className='mt-1 w-[20px]'  ><BiSolidDashboard size='23px'></BiSolidDashboard></h1>
-                        <h1 className='p-0 ml-2 text-2xl'>Dashboard</h1>
-                    </div>
-                    <div className='flex flex-col md:hidden text-xl m-8 list-none' >
-                        <Link onClick={handleHome} to='/Admin'  className='hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' >Home</Link>
-                        <li  className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Note</li>
-                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>QP</li>
-                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Exp</li>
-                    </div>
-                </div>
+              
                 {/* main view */}
 
                 <div className='w-[100%] h-[650px] max-lg:h-max  rounded text-center max-md:pb-16' >
