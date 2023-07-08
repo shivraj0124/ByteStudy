@@ -35,7 +35,7 @@ export default function Departments() {
                             key={subject._id}
                             className="w-30 h-100 bg-blue-100 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold"
                         >
-                            {subject.name}<br/> sem -{subject.semester.number}
+                            {subject.name}<br/> 
                         </div>
                     ))}
                 </div>
