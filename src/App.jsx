@@ -4,20 +4,21 @@ import './App.css'
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import Home from "./Components/Home"
-// import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import Departments from './Components/Departments'
 import Semesters from './Components/Semesters'
 import SignUp from './Components/SignUp'
 import Login from './Components/Login'
 import AdminLayout from './Components/Admin/AdminLayout'
-// import PostsForm from './Components/Admin/PostsForm'
 import { Stprovider } from './Components/StudyContext'
 import Layout from './Components/Layout'
 import Subjects from "./Components/Subjects"
 import Notes from './Components/Notes'
+import ForgotPassword from './Components/ForgotPassword';
+import Options from './Components/Options';
+import QuestionP from './Components/QustionP';
+import Experiments from './Components/Experiments';
 function App() {
-
   return (
     <>
       <Stprovider >
@@ -29,9 +30,13 @@ function App() {
               <Route exact path="/Departments" element={<Departments />}></Route>
               <Route exact path="/Semesters/:id" element={<Semesters />}></Route>
               <Route exact path="/Subjects/:id" element={<Subjects />}></Route>
+              <Route exact path="/Options" element={<Options />}></Route>
               <Route exact path="/Notes/:id" element={<Notes />}></Route>
+              <Route exact path="/QuestionsPapers/:id" element={<QuestionP />}></Route>
+              <Route exact path="/Experiments/:id" element={<Experiments />}></Route>
               <Route exact path="/SignUp" element={<SignUp />}></Route>
               <Route exact path="/Login" element={<Login />}></Route>
+              <Route exact path="/Forgot" element={<ForgotPassword />}></Route>
             </Route>
             <Route  path="/Admin" element={<AdminLayout />}>
             </Route>

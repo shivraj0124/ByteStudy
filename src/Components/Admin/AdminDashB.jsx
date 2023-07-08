@@ -25,9 +25,10 @@ export default function AdminDashB() {
     }
     return (
         <>
+
             <div className="w-[100%] z-10 h-max py-2 max-xl:px-0 px-5 mr-0 bg-white drop-shadow-2xl">
                 <h1 className='w-full text-3xl font-bold mx-2'>ByteStudy</h1>
-                <div onClick={handleNav} className='block md:hidden absolute right-0 top-0 m-5'>
+                <div onClick={handleNav} className='block md:hidden absolute right-0 top-0 mt-5 m-2'>
                     {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
                 </div>
             </div>
@@ -44,6 +45,20 @@ export default function AdminDashB() {
                     <div className='flex flex-col text-lg m-8 list-none' >
                         <Link onClick={handleHome} to='/Admin' className='hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>Home</Link>
 
+                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Notes</li>
+                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>QP</li>
+                        <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Exp</li>
+                    </div>
+                </div>
+
+                {/* Mobile Nav */}
+                <div className={ nav ? 'fixed left-0 top-0 w-[90%] h-full border-r  bg-white ease-in-out duration-500 p-5 text-2xl  z-40 md:hidden': 'ease-in-out duration-500  fixed left-[-100%] md:hidden' }>
+                    <div className='flex flex-row ml-2'>
+                        <h1 className='mt-1 w-[20px]'  ><BiSolidDashboard size='23px'/></h1>
+                        <h1 className='p-0 ml-2'>Dashboard</h1>
+                    </div>
+                    <div className='flex flex-col text-xl m-8 list-none' >
+                        <Link onClick={handleHome} to='/Admin' className='hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>Home</Link>
                         <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Notes</li>
                         <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>QP</li>
                         <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Exp</li>

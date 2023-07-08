@@ -162,7 +162,7 @@ export default function PostsForm() {
                             <form onSubmit={Postnotes}>
                                 <input
                                     type="text"
-                                    className="w-[80%] max-md:w-[90%] border-b-2 border-yellow-400 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
+                                    className="w-[100%] max-md:w-[90%] border-b-2 border-yellow-400 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="Name"
                                     placeholder="Name"
                                     value={name}
@@ -170,13 +170,13 @@ export default function PostsForm() {
                                 />
                                 <input
                                     type="url"
-                                    className="w-[80%] max-md:w-[90%] border-b-2 border-yellow-400 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
+                                    className="w-[100%] max-md:w-[90%] border-b-2 border-yellow-400 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="Link"
                                     placeholder="Link"
                                     value={link}
                                     onChange={(e) => setlink(e.target.value)}
                                 />
-                                <button className="w-[80%] max-md:w-[90%] mt-12 p-2 text-lg bg-yellow-400 hover:bg-yellow-300">Upload</button>
+                                <button className="w-[80%] max-md:w-[90%] mt-12 p-2 text-lg bg-yellow-400 hover:bg-yellow-300 rounded-lg">Upload</button>
 
                             </form>
 

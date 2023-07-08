@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {               // http://localhost:50
         if (!password | ! email) {
             return res.status(401).send({
                 success: false,
-                message: "Please provide  or password",
+                message: "Please provide  password",
             });
         }
         const user = await usermodel.findOne({ email });
