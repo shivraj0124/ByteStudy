@@ -19,6 +19,8 @@ import Options from './Components/Options';
 import QuestionP from './Components/QustionP';
 import Experiments from './Components/Experiments';
 import { Authprovider } from './Components/Authcontext';
+import UserProfile from './Components/UserProfile';
+
 function App() {
   return (
     <>
@@ -39,6 +41,7 @@ function App() {
               <Route exact path="/SignUp" element={<SignUp />}></Route>
               <Route exact path="/Login" element={<Login />}></Route>
               <Route exact path="/Forgot" element={<ForgotPassword />}></Route>
+              <Route exact path="/Profile" element={<UserProfile />}></Route>
             </Route>
             <Route  path="/Admin" element={<AdminLayout />}>
             </Route>

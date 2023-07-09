@@ -52,7 +52,7 @@ export default function AdminDashB() {
                 </div>
 
                 {/* Mobile Nav */}
-                <div className={ nav ? 'fixed left-0 top-0 w-[90%] h-full border-r  bg-white ease-in-out duration-500 p-5 text-2xl  z-40 md:hidden': 'ease-in-out duration-500  fixed left-[-100%] md:hidden' }>
+                <div className={nav ? 'fixed left-0 top-0 w-[90%] h-full border-r  bg-white ease-in-out duration-500 p-5 text-2xl  z-40 md:hidden' : 'ease-in-out duration-500  fixed left-[-100%] md:hidden'} onClick={handleNav}>
                     <div className='flex flex-row ml-2'>
                         <h1 className='mt-1 w-[20px]'  ><BiSolidDashboard size='23px'/></h1>
                         <h1 className='p-0 ml-2'>Dashboard</h1>

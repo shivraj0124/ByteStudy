@@ -59,7 +59,7 @@ export default function SignUp() {
                                     onChange={(e) => setpassword(e.target.value)}
                                     placeholder="Password" />
 
-                                <p className='text-sm ml-44 font-normal mt-4 max-md:mt-4' > <Link className='text-green-600' to='/Forgot '>Forgot Password ?</Link></p>
+                                <p className='text-sm md:mr-20 max-sm:mr-12 sm:mr-16 font-normal mt-4 float-right  ' > <Link className='text-green-600' to='/Forgot '>Forgot Password ?</Link></p>
                                 <button className='w-[80%] mt-6 p-2 text-lg bg-yellow-400 hover:bg-yellow-300 rounded-lg'>Login</button>
 
                             </form>

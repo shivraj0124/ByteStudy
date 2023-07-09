@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from "react";
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { BiUserCircle } from 'react-icons/bi';
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../Components/Authcontext";
 const Navbar = () => {
     const [nav, setNav] = useState(false);
     const [auth, setauth] = useAuth();
-
+    const navigate=useNavigate()
+    
     const handleNav = () => {
         setNav(!nav);
     };
@@ -16,7 +19,24 @@ const Navbar = () => {
                 <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/' >Home</Link>
                 <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>About</Link>
                 <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>Contact</Link>
+                {!auth?.user ? (
                 <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Login' >Login</Link>
+                ) : (
+                    <>
+                        {auth?.user?.role === 1 ? (
+                                <><div className='flex flex-row cursor-pointer' onClick={() => navigate('/Admin')} >
+                                    <li className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' >Admin</li>
+                                    <li className='mt-2 ml-0' >
+                                      <BiUserCircle size={40} />
+                                    </li>
+                                    </div>
+                                    </>
+                        ) : (
+                                    <> <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Profile' >{auth?.user?.name}</Link>
+                            </>
+                        )}
+                    </>
+                )}
 
             </ul>
             <div onClick={handleNav} className='block md:hidden'>
@@ -35,15 +55,27 @@ const Navbar = () => {
                 </Link>
                 {!auth?.user ? (
                     <Link to='/Login'>
-                        <li className='pt-4  pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Login' >Login</li>
+                        <li className='pt-4  pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' >Login</li>
                     </Link>
                 ) : (
                     <>
                         {auth?.user?.role === 1 ? (
-                            <>
-                                <li>admin</li></>
+                                <><div className='flex flex-row cursor-pointer' onClick={() => navigate('/Admin')} >
+                                    <li className='mt-2 ml-6' >
+                                        <BiUserCircle size={40} />
+                                    </li>
+                                    <li className='pt-4  text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={()=> navigate('/Admin')} >Admin</li>
+                                    
+                                </div>
+                                </>
                         ) : (
-                            <>user
+                                    <><div className='flex flex-row cursor-pointer' onClick={() => navigate('/Admin')} >
+                                        <li className='mt-2 ml-6' >
+                                            <BiUserCircle size={40} />
+                                        </li>
+                                        <li className='pt-4  text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={() => navigate('/Admin')} >{auth?.user?.name}</li>
+
+                                    </div>
                             </>
                         )}
                     </>
