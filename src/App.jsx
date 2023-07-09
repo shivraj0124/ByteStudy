@@ -18,9 +18,11 @@ import ForgotPassword from './Components/ForgotPassword';
 import Options from './Components/Options';
 import QuestionP from './Components/QustionP';
 import Experiments from './Components/Experiments';
+import { Authprovider } from './Components/Authcontext';
 function App() {
   return (
     <>
+    <Authprovider>
       <Stprovider >
         <BrowserRouter>
 
@@ -45,6 +47,7 @@ function App() {
         </BrowserRouter>
         <ToastContainer />
       </Stprovider>
+      </Authprovider>
     </>
   )
 }

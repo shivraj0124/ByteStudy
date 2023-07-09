@@ -2,12 +2,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import img1 from '../Images/Login.png'
 import { useState } from 'react'
 import axios from "axios"
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
+import { useAuth } from "../Components/Authcontext"
 export default function SignUp() {
 
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
-    const Navigate =useNavigate()
+    const Navigate = useNavigate();
+    const [auth, setauth] = useAuth();
 
     const handlesubmit = async (e) => {
         e.preventDefault();
@@ -21,6 +23,12 @@ export default function SignUp() {
         if (data.success) {
             toast.success(" login succesfully ")
             Navigate("/")
+            setauth({
+                ...auth,
+                user: data.user, 
+                token: data.token
+            });
+            localStorage.setItem("auth",JSON.stringify(data));
         }
         else {
             toast.error("seomething went wronf")
