@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useAuth } from "../Components/Authcontext";
 const Navbar = () => {
     const [nav, setNav] = useState(false);
+    const [auth, setauth] = useAuth();
 
     const handleNav = () => {
         setNav(!nav);
@@ -23,17 +25,30 @@ const Navbar = () => {
             <ul className={nav ? 'fixed left-0 top-0 w-[80%] h-full border-r  bg-white ease-in-out duration-500 z-40 md:hidden' : 'ease-in-out duration-500 fixed left-[-100%] md:hidden'} onClick={handleNav}>
                 <h1 className='w-full text-3xl font-bold text-gray-700 underline underline-offset-2 decoration-wavy decoration-yellow-400 mt-8 ml-8 pb-4'>ByteStudy</h1>
                 <Link to='/'>
-                <li className='pt-4  pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' >Home</li>
+                    <li className='pt-4  pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' >Home</li>
                 </Link>
                 <Link to='About' >
-                <li className='pt-4 pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>About</li>
+                    <li className='pt-4 pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>About</li>
                 </Link>
                 <Link to='/Contact'>
-                <li className='pt-4  pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Contact'>Contact</li>
+                    <li className='pt-4  pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Contact'>Contact</li>
                 </Link>
-                <Link to='/Login'>
-                <li className='pt-4  pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Login' >Login</li>
-                </Link>
+                {!auth?.user ? (
+                    <Link to='/Login'>
+                        <li className='pt-4  pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Login' >Login</li>
+                    </Link>
+                ) : (
+                    <>
+                        {auth?.user?.role === 1 ? (
+                            <>
+                                <li>admin</li></>
+                        ) : (
+                            <>user
+                            </>
+                        )}
+                    </>
+                )}
+
 
             </ul>
         </div>
