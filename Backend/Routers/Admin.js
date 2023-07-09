@@ -121,7 +121,7 @@ router.post("/create-QP", async (req, res) => {
 
 router.get("/get-Qp/:sub", async (req, res) => {
   const { sub } = req.params;
-  const qp = await notesmodel.find({ subject: sub }).populate("subject");
+  const qp = await qpmodel.find({ subject: sub }).populate("subject");
   return res.json({ qp })
 });
 

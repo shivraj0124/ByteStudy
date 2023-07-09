@@ -9,7 +9,7 @@ export default function Experiments() {
 
     const fetchnotes = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/v1/get-notes/${subid.id}`);
+            const response = await axios.get(`http://localhost:5000/api/v1/get-Exp/${subid.id}`);
             setnotes(response.data);
             console.log(response.data);
         } catch (error) {
@@ -25,11 +25,11 @@ export default function Experiments() {
         <>
             <div className="w-100 mt-10 max-md:mt-12 px-[10%] lg:px-[14%] pb-6">
                 <h1 className="text-2xl text-center pb-16 underline underline-offset-2 decoration-amber-400 font-semibold">
-                    Select Notes
+                    Select Experiments
                 </h1>
 
                 <div className="w-100 grid md:grid-cols-3 max-md:grid-rows-1 gap-8  lg:pb-52">
-                    {notes.notes && Array.isArray(notes.notes) && notes.notes.map((notes) => (
+                    {notes.Exp && Array.isArray(notes.Exp) && notes.Exp.map((notes) => (
                         <div
 
                             key={notes._id}
