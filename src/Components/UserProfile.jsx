@@ -12,7 +12,7 @@ export default function UserProfile() {
                 <div className='max-md:w-[100%] flex flex-col w-max md:px-20   items-center h-96 text-2xl  pt-10 bg-white rounded-md'>
                     <div>
                         <FaUserCircle size={100} />
-                        <li className='list-none font-bold'>Username</li>
+                        <li className='list-none font-bold uppercase'>{auth.user.username}</li>
                     </div>
                     
                     <div className='mt-3 font-normal text-xl text-gray-500'>

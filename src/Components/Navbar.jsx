@@ -69,11 +69,11 @@ const Navbar = () => {
                                 </div>
                                 </>
                         ) : (
-                                    <><div className='flex flex-row cursor-pointer' onClick={() => navigate('/Admin')} >
+                                    <><div className='flex flex-row cursor-pointer' onClick={() => navigate('/profile')} >
                                         <li className='mt-2 ml-6' >
                                             <BiUserCircle size={40} />
                                         </li>
-                                        <li className='pt-4  text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={() => navigate('/Admin')} >{auth?.user?.username}</li>
+                                        <li className='pt-4  text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={() => navigate('/profile')} >{auth?.user?.username}</li>
 
                                     </div>
                             </>
