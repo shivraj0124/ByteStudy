@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import img1 from '../Images/Signup.png'
 import { useState } from 'react'
 import axios from "axios"
@@ -11,6 +11,7 @@ export default function SignUp() {
     const [username, setusername] = useState("")
     const [password, setpassword] = useState("")
     const [cpass, setcpass] = useState("")
+    const navigate =useNavigate();
 
     const handlesubmit = async (e) => {
              e.preventDefault();
@@ -23,6 +24,7 @@ export default function SignUp() {
              });
              if(data.success){
                 toast.success(" Registration succesfully ")
+                navigate("/login")
              }
              else{
                 toast.error("seomething went wronf")

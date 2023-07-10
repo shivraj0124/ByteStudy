@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Components/Authcontext";
+import { toast } from "react-toastify"
 
 export default function Departments() {
   const [departments, setDepartments] = useState([]);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+  const [auth, setauth] = useAuth();
 
   const fetchDepartments = async () => {
     try {
@@ -17,8 +20,17 @@ export default function Departments() {
   };
 
   useEffect(() => {
-    fetchDepartments();
-  }, []);
+    if (auth.user) {
+      fetchDepartments();
+    }
+    else {
+
+      navigate("/login")
+      toast.success("login first")
+    }
+  }
+
+    , [auth.user]);
 
   return (
     <>
@@ -30,12 +42,12 @@ export default function Departments() {
         <div className="w-100 grid md:grid-cols-3 max-md:grid-rows-1 gap-8  lg:pb-52">
           {departments.map((department) => (
             <div
-            onClick={()=>navigate(`/Semesters/${department._id}`)}
+              onClick={() => navigate(`/Semesters/${department._id}`)}
               key={department._id}
               className="w-30 h-100 bg-blue-100 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold "
             >
               {department.name}
-            
+
             </div>
           ))}
         </div>

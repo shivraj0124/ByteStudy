@@ -62,6 +62,7 @@ router.post('/login', async (req, res) => {               // http://localhost:50
                 _id: user._id,
                 name: user.name,
                 email: user.email,
+                username:user.username,
                 password: user.password,
                 role: user.role
             },
@@ -78,4 +79,24 @@ router.post('/login', async (req, res) => {               // http://localhost:50
 }
 );
 
+
+
+router.put("/fpass",async(req,res)=>{
+    const {email,newpassword} =req.body
+    if(!email || !newpassword){
+        return res.status(500).send({
+           message:" provide all fields"
+        })
+    }
+    const user= await usermodel.findOne({email});
+    if(!user){
+        return res.send({message:"user not found "})
+    }
+    const cpass= await bcrypt.hash(newpassword, 10);
+    await usermodel.findByIdAndUpdate(user._id,{password:cpass});
+    res.status(200).send({
+        message:"password change succesfully ",
+        success:true
+    })
+})
 module.exports=router
