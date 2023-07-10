@@ -20,6 +20,7 @@ import QuestionP from './Components/QustionP';
 import Experiments from './Components/Experiments';
 import { Authprovider } from './Components/Authcontext';
 import UserProfile from './Components/UserProfile';
+import MyCart from './Components/MyCart';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
               <Route exact path="/Login" element={<Login />}></Route>
               <Route exact path="/Forgot" element={<ForgotPassword />}></Route>
               <Route exact path="/Profile" element={<UserProfile />}></Route>
+              <Route exact path="/MyCart" element={<MyCart />}></Route>
             </Route>
             <Route  path="/Admin" element={<AdminLayout />}>
             </Route>
