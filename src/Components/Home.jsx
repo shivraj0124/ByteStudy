@@ -12,7 +12,7 @@ export default function Home() {
         <>
             <div className="w-[100%]  h-full px-[10%] py-12 mr-0" >
                 <div className="mt-10" >
-                    <h2 className="text-4xl text-gray-600"  >
+                    <h2 className="text-4xl text-gray-600 font-bold"  >
                         Get your notes & question paper <br />and make your study easy
                     </h2>
                     <p className="mt-5" >

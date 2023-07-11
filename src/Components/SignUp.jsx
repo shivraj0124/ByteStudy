@@ -11,24 +11,34 @@ export default function SignUp() {
     const [username, setusername] = useState("")
     const [password, setpassword] = useState("")
     const [cpass, setcpass] = useState("")
-    const navigate =useNavigate();
+    const navigate = useNavigate();
 
     const handlesubmit = async (e) => {
-             e.preventDefault();
-             const { data } = await axios.post("http://localhost:5000/api/v3/register",{
-                name:name,
-                email:email,
-                username:username,
-                password:password,
-                cpassword:cpass
-             });
-             if(data.success){
+        e.preventDefault();
+
+        try {
+            const { data } = await axios.post("http://localhost:5000/api/v3/register", {
+                name: name,
+                email: email,
+                username: username,
+                password: password,
+                cpassword: cpass
+            });
+            if (data.success) {
                 toast.success(" Registration succesfully ")
                 navigate("/login")
-             }
-             else{
-                toast.error("seomething went wronf")
-             }
+            }
+            else {
+                toast.error("user already exist")
+            }
+        } catch (error) {
+            if (error.response && error.response.data && error.response.data.message) {
+                toast.error(error.response.data.message);
+            } else {
+                toast.error("An error occurred:", error.message);
+            }
+        }
+
     }
     return (
         <>
@@ -38,41 +48,41 @@ export default function SignUp() {
                     <div className="w-[60%] max-md:w-[100%] max-md:pb-8 h-auto text-center text-2xl font-semibold p-2 bg-slate-200" >
                         <h1 className='font underline underline-offset-2 max-md:mt-5' >Sign Up</h1>
                         <div className='mt-5 ' >
-                            <form onSubmit={handlesubmit}> 
+                            <form onSubmit={handlesubmit}>
                                 <input
                                     type="text"
                                     className="w-[80%] border-b-2 border-blue-300 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500  mt-3"
                                     name="fullname"
                                     value={name}
-                                    onChange={(e)=>setname(e.target.value)}
+                                    onChange={(e) => setname(e.target.value)}
                                     placeholder="Full Name" />
                                 <input
                                     type="email"
                                     className="w-[80%] border-b-2 border-blue-300 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="email"
                                     value={email}
-                                    onChange={(e)=>setemail(e.target.value)}
+                                    onChange={(e) => setemail(e.target.value)}
                                     placeholder="Email" />
                                 <input
                                     type="text"
                                     className="w-[80%] border-b-2 border-blue-300 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="Username"
                                     value={username}
-                                    onChange={(e)=>setusername(e.target.value)}
+                                    onChange={(e) => setusername(e.target.value)}
                                     placeholder="Username" />
                                 <input
                                     type="password"
                                     className="w-[80%] border-b-2 border-blue-300 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="fullname"
                                     value={password}
-                                    onChange={(e)=>setpassword(e.target.value)}
+                                    onChange={(e) => setpassword(e.target.value)}
                                     placeholder="Password" />
                                 <input
                                     type="password"
                                     className="w-[80%] border-b-2 border-blue-300 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="confirmPassword"
                                     value={cpass}
-                                    onChange={(e)=>setcpass(e.target.value)}
+                                    onChange={(e) => setcpass(e.target.value)}
                                     placeholder="Confirm Password" />
                                 <button className='w-[80%] mt-8 p-2 text-lg bg-yellow-400 hover:bg-yellow-300 rounded-lg'>SignUp</button>
 

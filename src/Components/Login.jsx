@@ -13,26 +13,38 @@ export default function SignUp() {
 
     const handlesubmit = async (e) => {
         e.preventDefault();
-        const { data } = await axios.post("http://localhost:5000/api/v3/login", {
 
-            email: email,
+        try { const { data } = await axios.post("http://localhost:5000/api/v3/login", {
 
-            password: password,
+        email: email,
 
+        password: password,
+
+    });
+    if (data.success) {
+        toast.success(" login succesfully ");
+        Navigate("/")
+        setauth({
+            ...auth,
+            user: data.user, 
+            token: data.token
         });
-        if (data.success) {
-            toast.success(" login succesfully ")
-            Navigate("/")
-            setauth({
-                ...auth,
-                user: data.user, 
-                token: data.token
-            });
-            localStorage.setItem("auth",JSON.stringify(data));
-        }
-        else {
-            toast.error("seomething went wronf")
-        }
+        localStorage.setItem("auth",JSON.stringify(data));
+    }
+    else {
+        toast.error("wrong password or email ");
+    }
+            
+        } 
+            catch (error) {
+                if (error.response && error.response.data && error.response.data.message) {
+                    toast.error(error.response.data.message);
+                } else {
+                    toast.error("An error occurred:", error.message);
+                }
+            }
+        
+       
     }
     return (
         <>

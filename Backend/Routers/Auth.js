@@ -8,6 +8,13 @@ const JWT_SECRET = "yashaghane"
        
 router.post("/register",async(req,res)=>{                                // http://localhost:5000/api/v3/register
     const {name,email,username,password,cpassword}=req.body
+      const suser= await usermodel.findOne({email})
+      if(suser){
+        return res.status(400).send({
+            success:false,
+            message:"user already exist"
+        })
+      }
     if(password === cpassword){
     const hashedpass= await bcrypt.hash(password,10)
         const user=new usermodel({name,email,username,password:hashedpass,cpassword:hashedpass});
@@ -27,7 +34,7 @@ router.post("/register",async(req,res)=>{                                // http
 });
 
 
-router.post('/login', async (req, res) => {               // http://localhost:5000/api/v3/login
+router.post("/login", async (req, res) => {               // http://localhost:5000/api/v3/login
     try {
         const { password, email } = req.body;
         //validation
