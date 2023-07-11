@@ -12,6 +12,8 @@ export default function Experiments() {
             const response = await axios.get(`http://localhost:5000/api/v1/get-Exp/${subid.id}`);
             setnotes(response.data);
             console.log(response.data);
+            //momadd
+            
         } catch (error) {
             console.log(error);
         }
