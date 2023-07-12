@@ -22,7 +22,7 @@ export default function Options() {
 
     return (
         <>
-            <div className="w-[100%] h-full px-[10%] py-12 mr-0">
+            <div className="w-[100%] h-full px-[10%] py-12 pb-32 mr-0">
                 <div className='w-full mt-36 bg-white'>
                     <div className='max-w-[1240px] grid md:grid-cols-3 gap-8'>
                         <div className='w-full flex flex-col my-4 rounded-lg hover:scale-105 duration-300 cursor-pointer' onClick={handleNotesClick}>

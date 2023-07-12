@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link,useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import img1 from '../Images/notes-img.jpg'
-import { BiDownload } from 'react-icons/bi'
+import { BsBookmark, BsBookmarkFill } from 'react-icons/bs'
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 export default function Notes() {
     const [notes, setnotes] = useState([])
@@ -18,11 +18,24 @@ export default function Notes() {
             console.log(error);
         }
     };
-
+    const [Save, setSave] = useState(false)
+    const handleSaveBtn = (e) => {
+        setSave(true)
+        // const save = e.target
+        // const saved = document.querySelector('#saved')
+        // save.classList.add('hidden')
+        // saved.classList.remove('hidden')
+    }
     useEffect(() => {
         fetchnotes();
     }, []);
 
+    const addToLocalStorage = (id, value) => {
+        const grocery = { id, value };
+        let items = getLocalStorage();
+        items.push(grocery);
+        localStorage.setItem("list", JSON.stringify(items));
+    }
     return (
         <>
             <div className="w-100 mt-10 max-md:mt-12 px-[10%] lg:px-[14%] pb-6">
@@ -37,22 +50,37 @@ export default function Notes() {
                                 <div className='flex flex-col justify-start items-start mt-4'>
                                     <h3 className='ml-2'>{notes.name}</h3>
                                     <li className='flex justify-between mt-3 w-[100%] '>
-                                        <Link  to={notes.link} className='text-sm w-max bg-yellow-400 py-2 px-6 rounded-md' >Click Here</Link>
-                                        <li data-tooltip-id="my-tooltip" data-tooltip-content="Download" className='list-none  text-green-600 '>
-                                            <BiDownload size={30} />
-                                        </li>
+                                        <Link to={notes.link} className='text-sm w-max bg-yellow-400 py-2 px-6 rounded-md' >Click Here</Link>
+                                        {!Save ?
+                                            <>
+                                                <li id="save" data-tooltip-id="my-tooltip" data-tooltip-content="Save" className='list-none text-green-600 ' onClick={handleSaveBtn}>
+                                                    <BsBookmark size={30} />
+                                                </li>
+                                            </>
+                                            :
+                                            <>
+                                                <li id='saved' data-tooltip-id="my-tooltip2" data-tooltip-content="Saved" className='list-none  text-green-600 '>
+                                                    <BsBookmarkFill size={30} />
+                                                </li>
+                                            </>
+                                        }
+
                                     </li>
 
                                 </div>
                             </div>
                         </>
                     ))}
-                        </div >
+                </div >
             </div>
             <ReactTooltip
                 id="my-tooltip"
                 place='bottom'
             />
-            </>
-            );
+            <ReactTooltip
+                id="my-tooltip2"
+                place='bottom'
+            />
+        </>
+    );
 }

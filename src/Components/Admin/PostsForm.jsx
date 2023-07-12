@@ -64,13 +64,13 @@ export default function PostsForm() {
         e.preventDefault();
         try {
 
-            let datta = {
+            let myData = {
                 "name": name,
                 "link": link
             }
             const { data } = await axios.post(`http://localhost:5000/api/v1/create-${posts}`, {
-                name: datta.name,
-                link: datta.link,
+                name: myData.name,
+                link: myData.link,
                 subject: selectedSub
             });
             if (data?.success) {
@@ -106,11 +106,11 @@ export default function PostsForm() {
     return (
         <>
             <div className="w-100 mt-16 justify-center max-xl:px-2 xl:px-52 md:pb-52 max-md:pb-4">
-                <div className="w-[100%] flex md:flex-row max-md:flex-col p-3 bg-slate-300 rounded-md">
+                <div className="w-[100%] flex md:flex-row max-md:flex-col p-3 bg-white shadow-xl rounded-md">
                     <div className="w-[40%] max-md:w-[100%] h-auto bg-slate-200">
                         <img src={img1} className="md:h-[100%] w-100 max-md:w-[100%] max-md:h-[20%] rounded-md" alt="Add Posts" />
                     </div>
-                    <div className="w-[60%] max-md:w-[100%] max-md:h-[70%] max-md:pb-16 md:h-auto text-center text-2xl font-semibold p-10 max-md:p-5 bg-slate-200">
+                    <div className="w-[60%] max-md:w-[100%] max-md:h-[70%] max-md:pb-16 md:h-auto text-center text-2xl font-semibold p-10 max-md:p-5 bg-white">
                         <h1 className="font underline underline-offset-2">Add New {posts}</h1>
                         <div className="mt-10 text-xl justify-center font-normal">
                             <div className="flex max-md:flex-col justify-center  items-center md:flex-row ">
@@ -162,7 +162,7 @@ export default function PostsForm() {
                             <form onSubmit={Postnotes}>
                                 <input
                                     type="text"
-                                    className="w-[100%] max-md:w-[90%] border-b-2 border-yellow-400 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
+                                    className="w-[100%] max-md:w-[90%] border-b-2 border-yellow-400 text-black focus:outline-none focus:border-yellow-400 w-100  focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="Name"
                                     placeholder="Name"
                                     value={name}
@@ -170,13 +170,13 @@ export default function PostsForm() {
                                 />
                                 <input
                                     type="url"
-                                    className="w-[100%] max-md:w-[90%] border-b-2 border-yellow-400 text-black focus:outline-none focus:border-yellow-400 w-100 bg-slate-200 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
+                                    className="w-[100%] max-md:w-[90%] border-b-2 border-yellow-400 text-black focus:outline-none focus:border-yellow-400 w-100 focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="Link"
                                     placeholder="Link"
                                     value={link}
                                     onChange={(e) => setlink(e.target.value)}
                                 />
-                                <button className="w-[80%] max-md:w-[90%] mt-12 p-2 text-lg bg-yellow-400 hover:bg-yellow-300 rounded-lg">Upload</button>
+                                <button className="w-[100%] max-md:w-[90%] mt-12 p-2 text-lg bg-yellow-400 hover:bg-yellow-300 rounded-lg">Upload</button>
 
                             </form>
 

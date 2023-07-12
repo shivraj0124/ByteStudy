@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-
+import { Link,useNavigate, useParams } from "react-router-dom";
+import img1 from '../Images/notes-img.jpg'
+import { AiOutlineFileAdd } from 'react-icons/ai'
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 export default function QuestionP() {
     const [qp, setqp] = useState([])
 
@@ -28,18 +30,31 @@ export default function QuestionP() {
                     Select Question Papers
                 </h1>
 
-                <div className="w-100 grid md:grid-cols-3 max-md:grid-rows-1 gap-8  lg:pb-52">
+                <div className="grid md:grid-cols-3 max-md:grid-rows-1 max-md:gap-4 gap-8">
                     {qp.qp && Array.isArray(qp.qp) && qp.qp.map((qp) => (
-                        <div
+                        <>
+                            <div key={qp._id} className='w-[100%] h-100 bg-blue-white shadow-2xl shadow-slate-500 hover:bg-[#eaf5fc] p-3 text-2xl text-center rounded-lg  text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold flex flex-col' >
+                                <img src={img1} className='h-44 w-[100%] mt-0 rounded-md' alt="img" />
+                                <div className='flex flex-col justify-start items-start mt-4'>
+                                    <h3 className='ml-2'>{qp.name}</h3>
+                                    <li className='flex justify-between mt-3 w-[100%] '>
+                                        <Link  to={qp.link} className='text-sm w-max bg-yellow-400 py-2 px-6 rounded-md' >Click Here</Link>
+                                        <li data-tooltip-id="my-tooltip" data-tooltip-content="Download" className='list-none  text-green-600 '>
+                                            <AiOutlineFileAdd size={30} />
+                                        </li>
+                                    </li>
 
-                            key={qp._id}
-                            className="w-30 h-100 bg-blue-100 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold"
-                        >
-                            {qp.name}<br /> {qp.link}
-                        </div>
+                                </div>
+                            </div>
+                        </>
+                       
                     ))}
                 </div>
             </div>
+            <ReactTooltip
+                id="my-tooltip"
+                place='bottom'
+            />
         </>
     );
 }

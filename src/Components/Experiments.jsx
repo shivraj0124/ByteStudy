@@ -1,16 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-
+import { Link,useNavigate, useParams } from "react-router-dom";
+import img1 from '../Images/notes-img.jpg'
+import { AiFillSave } from 'react-icons/ai'
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 export default function Experiments() {
-    const [notes, setnotes] = useState([])
+    const [Exps, setExps] = useState([])
 
     const subid = useParams();
 
-    const fetchnotes = async () => {
+    const fetchExps = async () => {
         try {
             const response = await axios.get(`http://localhost:5000/api/v1/get-Exp/${subid.id}`);
-            setnotes(response.data);
+            setExps(response.data);
             console.log(response.data);
             //momadd
             
@@ -20,7 +22,7 @@ export default function Experiments() {
     };
 
     useEffect(() => {
-        fetchnotes();
+        fetchExps();
     }, []);
 
     return (
@@ -30,18 +32,30 @@ export default function Experiments() {
                     Select Experiments
                 </h1>
 
-                <div className="w-100 grid md:grid-cols-3 max-md:grid-rows-1 gap-8  lg:pb-52">
-                    {notes.Exp && Array.isArray(notes.Exp) && notes.Exp.map((notes) => (
-                        <div
+                <div className="grid md:grid-cols-3 max-md:grid-rows-1 max-md:gap-4 gap-8">
+                    {Exps.Exp && Array.isArray(Exps.Exp) && Exps.Exp.map((Exps) => (
+                        <>
+                            <div key={Exps._id} className='w-[100%] h-100 bg-blue-white shadow-2xl shadow-slate-500 hover:bg-[#eaf5fc] p-3 text-2xl text-center rounded-lg  text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold flex flex-col' >
+                                <img src={img1} className='h-44 w-[100%] mt-0 rounded-md' alt="img" />
+                                <div className='flex flex-col justify-start items-start mt-4'>
+                                    <h3 className='ml-2'>{Exps.name}</h3>
+                                    <li className='flex justify-between mt-3 w-[100%] '>
+                                        <Link to={Exps.link} className='text-sm w-max bg-yellow-400 py-2 px-6 rounded-md' >Click Here</Link>
+                                        <li data-tooltip-id="my-tooltip" data-tooltip-content="Save " className='list-none  text-green-600 '>
+                                            <AiFillSave size={30} />
+                                        </li>
+                                    </li>
 
-                            key={notes._id}
-                            className="w-30 h-100 bg-blue-100 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold"
-                        >
-                            {notes.name}<br /> sem -{notes.link}
-                        </div>
+                                </div>
+                            </div>
+                        </>
                     ))}
                 </div>
             </div>
+            <ReactTooltip
+                id="my-tooltip"
+                place='bottom'
+            />
         </>
     );
 }

@@ -25,7 +25,7 @@ export default function Home() {
                 </div>
                 {/* Services */}
 
-                <div className='w-full mt-36 bg-white '>
+                <div className='w-full mt-36 '>
                     <div className='max-w-[1240px]  grid md:grid-cols-3 gap-8'>
                         <div className='w-full  flex flex-col my-4 rounded-lg hover:scale-105 duration-300'>
                             <img className='w-[100%] h-[80%] mx-auto mt-[-3rem] bg-white' src={img2} alt="/" />

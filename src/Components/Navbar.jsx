@@ -13,7 +13,7 @@ const Navbar = () => {
         setNav(!nav);
     };
     return (
-        <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto mt-0 px-4 text-black'>
+        <div className='flex justify-between items-center h-16 max-w-[1240px] mx-auto mt-0 px-4 text-black'>
             <h1 className='w-full text-3xl font-bold underline underline-offset-2 decoration-wavy decoration-yellow-400'>ByteStudy</h1>
             <ul className='hidden md:flex'>
                 <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/' >Home</Link>
@@ -32,13 +32,16 @@ const Navbar = () => {
                                     </div>
                                     </>
                         ) : (
-                                    <> <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Profile' >{auth?.user?.name}</Link>
+                                    <> <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Profile' >{auth?.user?.username}</Link>
                             </>
                         )}
                     </>
                 )}
-
             </ul>
+
+
+
+        {/* mobile Nav */}
             <div onClick={handleNav} className='block md:hidden'>
                 {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
             </div>
