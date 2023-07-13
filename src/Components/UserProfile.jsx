@@ -2,9 +2,19 @@ import { FaUserCircle } from 'react-icons/fa'
 import { BsFillBox2HeartFill } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from "../Components/Authcontext";
+import { useCart } from './CartContext';
 export default function UserProfile() {
     const navigate =useNavigate()
     const [auth, setauth] = useAuth();
+    const { notesCart} = useCart()
+    const handleMyCart =()=>{
+        if(notesCart.length === 0){
+            alert(`You haven't saved any note `);
+            
+        }else{
+            navigate('/MyCart')
+        }
+    }
     return (
         <>
             <div className="w-[100%] h-full max-sm:px-[5%] px-[10%] py-12 mr-0  pb-72 flex justify-center bg-blue-100"  >
@@ -20,7 +30,7 @@ export default function UserProfile() {
                        <ul className='mt-7'>
                             <li className='mt-2'>Name: <span >{auth.user.name}</span></li>
                             <li className='mt-2'>Email: <span >{auth.user.email}</span></li>
-                            <div className='flex mt-2 hover:text-yellow-600 cursor-pointer' onClick={() => navigate('/MyCart')}>
+                            <div className='flex mt-2 hover:text-yellow-600 cursor-pointer' onClick={handleMyCart}>
                         <li >My Cart </li>
                         <li className='mt-2 ml-2'>
                         <BsFillBox2HeartFill size={20} />

@@ -21,11 +21,12 @@ import Experiments from './Components/Experiments';
 import { Authprovider } from './Components/Authcontext';
 import UserProfile from './Components/UserProfile';
 import MyCart from './Components/MyCart';
-
+import {CartProvider}  from './Components/CartContext'
 function App() {
   return (
     <>
     <Authprovider>
+        <CartProvider>
       <Stprovider >
         <BrowserRouter>
 
@@ -52,6 +53,7 @@ function App() {
         </BrowserRouter>
         <ToastContainer />
       </Stprovider>
+        </CartProvider>
       </Authprovider>
     </>
   )

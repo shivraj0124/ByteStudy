@@ -1,12 +1,16 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { Link, useParams } from "react-router-dom";
 import img1 from '../Images/notes-img.jpg'
-import { BsBookmark, BsBookmarkFill } from 'react-icons/bs'
+import { BsBookmark } from 'react-icons/bs'
 import { Tooltip as ReactTooltip } from 'react-tooltip'
+import { toast } from 'react-toastify'
+import {useAuth} from './Authcontext'
+import { useCart } from "./CartContext";
 export default function Notes() {
+    const [auth, setauth] = useAuth();
+    const {notesCart, setNotesCart}=useCart();
     const [notes, setnotes] = useState([])
-
     const subid = useParams();
 
     const fetchnotes = async () => {
@@ -19,23 +23,27 @@ export default function Notes() {
         }
     };
     const [Save, setSave] = useState(false)
-    const handleSaveBtn = (e) => {
-        setSave(true)
-        // const save = e.target
-        // const saved = document.querySelector('#saved')
-        // save.classList.add('hidden')
-        // saved.classList.remove('hidden')
-    }
     useEffect(() => {
-        fetchnotes();
-    }, []);
-
-    const addToLocalStorage = (id, value) => {
-        const grocery = { id, value };
-        let items = getLocalStorage();
-        items.push(grocery);
-        localStorage.setItem("list", JSON.stringify(items));
+            fetchnotes();
+        
+    },[]);
+    const handleSaveBtn = (e) => {
+        
+        toast.success('Note saved successfully !',{
+            autoClose:2000,
+        })
+        const data = e.currentTarget.parentElement.parentElement.parentElement
+        const id = data.children[0].id
+        const name = data.children[0].innerHTML
+        const link = data.children[1].id
+        
+        // console.log(value1.innerHTML ,value2.id);
+        const updateCart={id,name,link}
+        setNotesCart([...notesCart, updateCart]);
+        localStorage.setItem("notesCart", JSON.stringify([...notesCart]));
     }
+    
+    
     return (
         <>
             <div className="w-100 mt-10 max-md:mt-12 px-[10%] lg:px-[14%] pb-6">
@@ -48,23 +56,15 @@ export default function Notes() {
                             <div key={notes._id} className='w-[100%] h-100 bg-blue-white shadow-2xl shadow-slate-500 hover:bg-[#eaf5fc] p-3 text-2xl text-center rounded-lg  text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold flex flex-col' >
                                 <img src={img1} className='h-44 w-[100%] mt-0 rounded-md' alt="img" />
                                 <div className='flex flex-col justify-start items-start mt-4'>
-                                    <h3 className='ml-2'>{notes.name}</h3>
-                                    <li className='flex justify-between mt-3 w-[100%] '>
-                                        <Link to={notes.link} className='text-sm w-max bg-yellow-400 py-2 px-6 rounded-md' >Click Here</Link>
-                                        {!Save ?
-                                            <>
-                                                <li id="save" data-tooltip-id="my-tooltip" data-tooltip-content="Save" className='list-none text-green-600 ' onClick={handleSaveBtn}>
-                                                    <BsBookmark size={30} />
+                                    <h3 id={notes._id} className='ml-2'>{notes.name}</h3>
+                                    <li id={notes.link} className='flex justify-between mt-3 w-[100%] '>
+                                        <Link  to={notes.link} className='text-sm w-max bg-yellow-400 py-2 px-6 rounded-md' >Click Here</Link>
+                                        
+                                        
+                                                <li id="save" data-tooltip-id="my-tooltip" data-tooltip-content="Save" className='list-none text-green-600 ' >
+                                            <BsBookmark onClick={handleSaveBtn} size={30} />
                                                 </li>
-                                            </>
-                                            :
-                                            <>
-                                                <li id='saved' data-tooltip-id="my-tooltip2" data-tooltip-content="Saved" className='list-none  text-green-600 '>
-                                                    <BsBookmarkFill size={30} />
-                                                </li>
-                                            </>
-                                        }
-
+                                            
                                     </li>
 
                                 </div>
@@ -77,10 +77,7 @@ export default function Notes() {
                 id="my-tooltip"
                 place='bottom'
             />
-            <ReactTooltip
-                id="my-tooltip2"
-                place='bottom'
-            />
+           
         </>
     );
 }
