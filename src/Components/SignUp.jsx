@@ -15,7 +15,7 @@ export default function SignUp() {
 
     const handlesubmit = async (e) => {
         e.preventDefault();
-
+        
         try {
             const { data } = await axios.post("http://localhost:5000/api/v3/register", {
                 name: name,
@@ -67,6 +67,7 @@ export default function SignUp() {
                                     type="text"
                                     className="w-[80%] border-b-2 border-yellow-200 text-black focus:outline-none focus:border-yellow-400 w-100  focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="Username"
+                                    maxLength={10}
                                     value={username}
                                     onChange={(e) => setusername(e.target.value)}
                                     placeholder="Username" />

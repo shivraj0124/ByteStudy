@@ -10,7 +10,7 @@ export default function UserProfile() {
 
     const handleMyCart =()=>{
         if(notesCart.length === 0 && questionCart.length ===0 && expCart.length === 0){
-            alert(`You haven't saved any note `);
+            alert(`Your cart is empty `);
             
         }else{
             navigate('/MyCart')
@@ -21,7 +21,7 @@ export default function UserProfile() {
             <div className="w-[100%] h-full max-sm:px-[5%] px-[10%] py-12 mr-0  pb-72 flex justify-center bg-blue-100"  >
                 
                 <div className='max-md:w-[100%] flex flex-col w-max md:px-20   items-center h-96 text-2xl  pt-10 bg-white rounded-md'>
-                    <div>
+                    <div className='flex flex-col justify-center items-center' >
                         <FaUserCircle size={100} />
                         <li className='list-none font-bold uppercase'>{auth.user.username}</li>
                     </div>
