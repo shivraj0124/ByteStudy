@@ -6,9 +6,10 @@ import { useCart } from './CartContext';
 export default function UserProfile() {
     const navigate =useNavigate()
     const [auth, setauth] = useAuth();
-    const { notesCart} = useCart()
+    const { notesCart,questionCart,expCart} = useCart()
+
     const handleMyCart =()=>{
-        if(notesCart.length === 0){
+        if(notesCart.length === 0 && questionCart.length ===0 && expCart.length === 0){
             alert(`You haven't saved any note `);
             
         }else{

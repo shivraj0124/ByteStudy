@@ -22,7 +22,7 @@ export default function Notes() {
             console.log(error);
         }
     };
-    const [Save, setSave] = useState(false)
+    
     useEffect(() => {
             fetchnotes();
         
@@ -36,11 +36,12 @@ export default function Notes() {
         const id = data.children[0].id
         const name = data.children[0].innerHTML
         const link = data.children[1].id
-        
-        // console.log(value1.innerHTML ,value2.id);
         const updateCart={id,name,link}
         setNotesCart([...notesCart, updateCart]);
         localStorage.setItem("notesCart", JSON.stringify([...notesCart]));
+        const btn = e.currentTarget.parentElement
+        btn.classList.add('hidden')
+        console.log(btn);
     }
     
     
@@ -59,9 +60,8 @@ export default function Notes() {
                                     <h3 id={notes._id} className='ml-2'>{notes.name}</h3>
                                     <li id={notes.link} className='flex justify-between mt-3 w-[100%] '>
                                         <Link  to={notes.link} className='text-sm w-max bg-yellow-400 py-2 px-6 rounded-md' >Click Here</Link>
-                                        
-                                        
-                                                <li id="save" data-tooltip-id="my-tooltip" data-tooltip-content="Save" className='list-none text-green-600 ' >
+                                                                                
+                                                <li id="save" data-tooltip-id="my-tooltip" data-tooltip-content="Save" className='list-none text-green-600'>
                                             <BsBookmark onClick={handleSaveBtn} size={30} />
                                                 </li>
                                             

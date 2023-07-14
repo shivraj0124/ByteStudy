@@ -1,33 +1,33 @@
 import img1 from '../Images/notes-img.jpg'
-// import { useEffect } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import img2 from '../Images/notesImg.png'
+import img3 from '../Images/questionPImg.png'
+import img4 from '../Images/experimentsImg.png'
+import { useNavigate } from 'react-router-dom'
 import { useCart } from './CartContext'
-import { MdDeleteOutline } from 'react-icons/md'
-import { Tooltip as ReactTooltip } from 'react-tooltip'
-import { toast } from 'react-toastify'
-export default function MyCart(){
-    const {notesCart,setNotesCart}=useCart()
-    const navigate = useNavigate()
-    let cart = JSON.parse(localStorage.getItem('notesCart'))
-    const handleDelete =(nId)=>{
-        let myCart = [...notesCart];
-        let index = myCart.findIndex((item) => item._id === nId);        
-        myCart.splice(index,1)
-        console.log(index)
-        setNotesCart(myCart);
-        // console.log(nId,'hiiiii');
-        // let temp = cart.map(item => console.log(item.id))
-        localStorage.setItem("notesCart", JSON.stringify(myCart));
-        toast.error("Item removed",{
-            autoClose: 2000,
-        })
-    }
-    if(notesCart.length === 0){
-        setTimeout(()=>{
-            navigate('/')
-        },3000)
 
-        
+export default function MyCart(){
+    const { notesCart, questionCart, expCart } = useCart()
+    const navigate=useNavigate()
+    const NoteCart = () => {
+        if(notesCart.length === 0){
+            alert(`You haven't saved any note !`)
+        }else{
+            navigate('/MyCart/Notes')
+        }
+    }
+    const QuestionCart = () => {
+        if(questionCart.length === 0){
+            alert(`You haven't saved any note !`)
+        } else {
+            navigate('/MyCart/Qp')
+        }
+    }
+    const ExpCart = () => {
+        if(expCart.length === 0){
+            alert(`You haven't saved any note !`)
+        } else {
+            navigate('/MyCart/Experiments')
+        }
     }
     
     return(
@@ -36,30 +36,25 @@ export default function MyCart(){
                 <h1 className="text-2xl pb-16 underline underline-offset-2 decoration-amber-400 font-semibold text-center">
                     MyCart
                 </h1>
-                <div  className="grid md:grid-cols-3 max-md:grid-rows-1 max-md:gap-4 gap-8">
-                {  notesCart?.map((item,id)=>(            
-                    <div key={id} className='w-[100%] h-100 bg-blue-100 p-3 text-2xl text-center rounded-lg  text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold flex flex-col' >
-                        <img src={img1} className='h-44 w-[100%] mt-0 rounded-md' alt="img" />
-                        <div className='flex flex-col justify-start items-start mt-4'>
-                            <h3 className='ml-2'>{item.name}</h3>
-                            <li className='flex justify-between mt-3 w-[100%]'>
-                                <Link to={item.link} className='text-sm bg-yellow-400 py-2 px-6 rounded-md'>Click Here</Link>
-
-                                <li id="save" data-tooltip-id="my-tooltip" data-tooltip-content="Remove" className='list-none text-red-600 ' >
-                                    <MdDeleteOutline onClick={() => handleDelete(item.id)} size={30} />
-                                </li>                                
-                            </li>
+                <div className='w-full mt-36 bg-white'>
+                    <div className='max-w-[1240px] grid md:grid-cols-3 gap-8'>
+                        <div className='w-full flex flex-col my-4 rounded-lg hover:scale-105 duration-300 cursor-pointer' onClick={NoteCart}>
+                            <img className='w-[100%] h-[80%] mx-auto mt-[-3rem] bg-white' src={img2} alt="/" />
+                            <h2 className='text-2xl text-center'>Notes</h2>
                         </div>
-                    </div>                      
-                ))  
-                }
-                </div>
-                              
+
+                        <div className='w-full flex flex-col my-4 rounded-lg hover:scale-105 duration-300 cursor-pointer' onClick={QuestionCart}>
+                            <img className='w-[100%] h-[80%] mx-auto mt-[-3rem] bg-white' src={img3} alt="/" />
+                            <h2 className='text-2xl text-center'>Question Papers</h2>
+                        </div>
+
+                        <div className='w-full flex flex-col my-4 rounded-lg hover:scale-105 duration-300 cursor-pointer' onClick={ExpCart}>
+                            <img className='w-[100%] h-[80%] mx-auto mt-[-3rem] bg-white' src={img4} alt="/" />
+                            <h2 className='text-2xl text-center'>Experiment</h2>
+                        </div>
+                    </div>
+                </div>                           
             </div>
-            <ReactTooltip
-                id="my-tooltip"
-                place='bottom'
-            />
         </>
     )
 }

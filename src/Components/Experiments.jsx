@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link,useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import img1 from '../Images/notes-img.jpg'
-import { AiFillSave } from 'react-icons/ai'
+import { BsBookmark } from 'react-icons/bs'
 import { Tooltip as ReactTooltip } from 'react-tooltip'
+import { useCart } from "./CartContext";
+import {toast} from 'react-toastify'
 export default function Experiments() {
     const [Exps, setExps] = useState([])
-
+    const { expCart, setExpCart }=useCart()
     const subid = useParams();
 
     const fetchExps = async () => {
@@ -24,6 +26,19 @@ export default function Experiments() {
     useEffect(() => {
         fetchExps();
     }, []);
+    const handleSaveBtn = (e) => {
+
+        toast.success('Experiment saved successfully !', {
+            autoClose: 2000,
+        })
+        const data = e.currentTarget.parentElement.parentElement.parentElement
+        const id = data.children[0].id
+        const name = data.children[0].innerHTML
+        const link = data.children[1].id
+        const updateCart = { id, name, link }
+        setExpCart([...expCart, updateCart]);
+        localStorage.setItem("expCart", JSON.stringify([...expCart]));
+    }
 
     return (
         <>
@@ -38,11 +53,11 @@ export default function Experiments() {
                             <div key={Exps._id} className='w-[100%] h-100 bg-blue-white shadow-2xl shadow-slate-500 hover:bg-[#eaf5fc] p-3 text-2xl text-center rounded-lg  text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold flex flex-col' >
                                 <img src={img1} className='h-44 w-[100%] mt-0 rounded-md' alt="img" />
                                 <div className='flex flex-col justify-start items-start mt-4'>
-                                    <h3 className='ml-2'>{Exps.name}</h3>
-                                    <li className='flex justify-between mt-3 w-[100%] '>
+                                    <h3 id={Exps._id} className='ml-2'>{Exps.name}</h3>
+                                    <li id={Exps.link} className='flex justify-between mt-3 w-[100%] '>
                                         <Link to={Exps.link} className='text-sm w-max bg-yellow-400 py-2 px-6 rounded-md' >Click Here</Link>
                                         <li data-tooltip-id="my-tooltip" data-tooltip-content="Save " className='list-none  text-green-600 '>
-                                            <AiFillSave size={30} />
+                                            <BsBookmark  onClick={handleSaveBtn} size={30} />
                                         </li>
                                     </li>
 
