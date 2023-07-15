@@ -29,11 +29,11 @@ export default function SignUp() {
                 navigate("/login")
             }
             else {
-                toast.error("user already exist")
+                toast.warn("user already exist")
             }
         } catch (error) {
             if (error.response && error.response.data && error.response.data.message) {
-                toast.error(error.response.data.message);
+                toast.warn(error.response.data.message);
             } else {
                 toast.error("An error occurred:", error.message);
             }
