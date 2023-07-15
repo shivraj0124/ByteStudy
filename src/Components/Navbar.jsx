@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import img1 from '../Images/logo.png'
+import img1 from '../assets/uuo.png'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { BiUserCircle } from 'react-icons/bi';
 import { Link } from 'react-router-dom'
@@ -15,7 +15,7 @@ const Navbar = () => {
     };
     return (
         <div className='flex justify-between items-center h-16 max-w-[1240px] mx-auto mt-0 px-4 text-black'>
-            <img src={img1} className='w-[10%] h-[40px] p-0 border-2 border-black mt-0'/>
+            <img src={img1} className='w-[50%] h-[150px] p-0 md:w-[20%] sm:h-[220px]  mt-5'/>
             <ul className='hidden md:flex'>
                 <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/' >Home</Link>
                 <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>About</Link>
