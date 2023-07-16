@@ -27,6 +27,8 @@ export default function ForgotPassword() {
         else {
             toast.error("seomething went wronf")
         }
+    }else{
+            toast.error("Confirm Password doesn't match!")
     }
     }
     return (

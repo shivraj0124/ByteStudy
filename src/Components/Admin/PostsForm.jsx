@@ -107,8 +107,8 @@ export default function PostsForm() {
         <>
             <div className="w-100 mt-16 justify-center max-xl:px-2 xl:px-52 md:pb-52 max-md:pb-4">
                 <div className="w-[100%] flex md:flex-row max-md:flex-col p-3 bg-white shadow-xl rounded-md">
-                    <div className="w-[40%] max-md:w-[100%] h-auto bg-slate-200">
-                        <img src={img1} className="md:h-[100%] w-100 max-md:w-[100%] max-md:h-[20%] rounded-md" alt="Add Posts" />
+                    <div className="w-[40%] max-md:w-[100%] h-[200px] bg-slate-200">
+                        <img src={img1} className="md:h-[100%] w-100 max-md:w-[100%] max-md:h-[100%] rounded-md" alt="Add Posts" />
                     </div>
                     <div className="w-[60%] max-md:w-[100%] max-md:h-[70%] max-md:pb-16 md:h-auto text-center text-2xl font-semibold p-10 max-md:p-5 bg-white">
                         <h1 className="font underline underline-offset-2">Add New {posts}</h1>

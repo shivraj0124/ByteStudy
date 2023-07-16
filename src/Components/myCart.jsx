@@ -17,14 +17,14 @@ export default function MyCart(){
     }
     const QuestionCart = () => {
         if(questionCart.length === 0){
-            alert(`You haven't saved any note !`)
+            alert(`You haven't saved any Question Paper !`)
         } else {
             navigate('/MyCart/Qp')
         }
     }
     const ExpCart = () => {
         if(expCart.length === 0){
-            alert(`You haven't saved any note !`)
+            alert(`You haven't saved any Experiment !`)
         } else {
             navigate('/MyCart/Experiments')
         }
@@ -36,7 +36,7 @@ export default function MyCart(){
                 <h1 className="text-2xl pb-16 underline underline-offset-2 decoration-amber-400 font-semibold text-center">
                     MyCart
                 </h1>
-                <div className='w-full mt-36 bg-white'>
+                <div className='w-full mt-36 bg-white md:pb-16'>
                     <div className='max-w-[1240px] grid md:grid-cols-3 gap-8'>
                         <div className='w-full flex flex-col my-4 rounded-lg hover:scale-105 duration-300 cursor-pointer' onClick={NoteCart}>
                             <img className='w-[100%] h-[80%] mx-auto mt-[-3rem] bg-white' src={img2} alt="/" />

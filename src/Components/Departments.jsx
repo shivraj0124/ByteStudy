@@ -24,7 +24,6 @@ export default function Departments() {
       fetchDepartments();
     }
     else {
-
       navigate("/login")
       toast.success("login first")
     }
@@ -34,7 +33,7 @@ export default function Departments() {
 
   return (
     <>
-      <div className="w-100 mt-10 max-md:mt-12 px-[10%] lg:px-[14%] pb-6">
+      <div className="w-100 py-16 px-[15%] mt-0 bg-gray-200 lg:px-[14%] pb-6">
         <h1 className="text-2xl text-center pb-16 underline underline-offset-2 decoration-amber-400 font-semibold">
           Select Department
         </h1>
@@ -44,7 +43,7 @@ export default function Departments() {
             <div
               onClick={() => navigate(`/Semesters/${department._id}`)}
               key={department._id}
-              className="w-30 h-100 bg-blue-100 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold "
+              className="w-30 h-100 bg-[#a9e4ff] shadow-xl 0 p-5 py-20 text-2xl text-center rounded-lg hover:bg-amber-300 text-[#27374D] hover:text-[#27374D]  cursor-pointer font-semibold "
             >
               {department.name}
 
