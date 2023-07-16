@@ -17,12 +17,13 @@ export default function SignUp() {
         try { const { data } = await axios.post("http://localhost:5000/api/v3/login", {
 
         email: email,
-
         password: password,
 
     });
     if (data.success) {
-        toast.success(" login succesfully ");
+        toast.success(" login succesfully ", {
+            autoClose: 2000,
+        });
         Navigate("/")
         setauth({
             ...auth,
@@ -32,7 +33,9 @@ export default function SignUp() {
         localStorage.setItem("auth",JSON.stringify(data));
     }
     else {
-        toast.error("wrong password or email ");
+        toast.error("wrong password or email ", {
+            autoClose: 2000,
+        });
     }
             
         } 

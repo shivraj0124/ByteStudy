@@ -6,6 +6,7 @@ import PostHook from '../StudyContext'
 import PostsForm from './PostsForm'
 import axios from 'axios'
 import { useAuth } from '../Authcontext'
+import { Puff } from 'react-loader-spinner'
 export default function AdminDashB() {
     const { setPostsP } = PostHook()
     const [auth, setauth] = useAuth()
@@ -14,6 +15,7 @@ export default function AdminDashB() {
     const [qp, setqp] = useState("")
     const [exp, setexp] = useState("")
     const [users, setusers] = useState("")
+    const [loader,setLoader]=useState(false)
     const navigate = useNavigate()
     const handleAddNew = (e) => {
         const innerHtml = e.target.innerHTML
@@ -45,6 +47,7 @@ export default function AdminDashB() {
 
         const texp = await axios.get("http://localhost:5000/api/v1/cexp")
         setexp(texp.data)
+        setLoader(false)
 
 
 
@@ -58,6 +61,7 @@ export default function AdminDashB() {
         navigate('/')
     }
     useEffect(() => {
+        setLoader(true)
         if (auth?.user?.role !== 1) {
             alert('Login as Admin !');
             navigate('/')
@@ -70,6 +74,8 @@ export default function AdminDashB() {
         <>
 
             <div className="w-[100%] z-10 h-max py-2 max-xl:px-0 px-5 mr-0 bg-white drop-shadow-2xl">
+                
+                
                 <h1 onClick={()=> navigate('/')} className='w-full text-3xl font-bold mx-2 cursor-pointer'>ByteStudy</h1>
                 <button onClick={handleLogOut} className="block max-md:hidden w-max px-4 text-lg h-8 rounded bg-yellow-300 hover:bg-[#ebeb5a] absolute right-0 top-0 mt-2 mx-8">
                     Logout
@@ -83,7 +89,7 @@ export default function AdminDashB() {
             <div className='flex flex-row z-5 bg-gray-100 max-md:pb-16'>
                 <div className="hidden md:block h-[700px] w-[300px] max-sm:w-[90%] bg-white text-xl border rounded pl-2 pt-4 ">
 
-
+                    
                     <div className='flex flex-row ml-2'>
                         <h1 className='mt-1 w-[20px]'  ><BiSolidDashboard size='20px'></BiSolidDashboard></h1>
                         <h1 className='p-0 ml-2'>Dashboard</h1>
@@ -96,7 +102,7 @@ export default function AdminDashB() {
                         <li className='mt-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={handleAddNew}>Exp</li>
                     </div>
                 </div>
-
+                
                 {/* Mobile Nav */}
                 <div className={nav ? 'fixed left-0 top-0 w-[90%] h-full border-r  bg-gray-200 ease-in-out duration-500 p-5 text-2xl  z-40 md:hidden' : 'ease-in-out duration-500  fixed left-[-100%] md:hidden'} onClick={handleNav}>
                     <div className='flex flex-row ml-2'>
@@ -118,6 +124,21 @@ export default function AdminDashB() {
                 {/* main view */}
 
                 <div className='w-[100%] h-[650px] max-lg:h-max  rounded text-center max-md:pb-16' >
+                    {loader ?
+                    <div className='flex flex-row justify-center mt-10 items-center '>
+                        <Puff
+                            height="80"
+                            width="80"
+                            radius={1}
+                            color="#F1C93B"
+                            ariaLabel="puff-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />
+                        </div>
+                        :
+                        <>
 
                     {
                         enableHome ? <>
@@ -142,6 +163,8 @@ export default function AdminDashB() {
                             </div>
                         </> : <PostsForm />
                     }
+                    </>
+}
                 </div>
             </div>
         </>

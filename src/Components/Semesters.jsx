@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { Puff } from "react-loader-spinner";
 export default function Semesters() {
     const id = useParams();
     const navigate=useNavigate();
     const [sem, setSem] = useState([]);
-
+    const [loader,setLoader]=useState()
     const getSem = async () => {
         try {
             const response = await axios.get(`http://localhost:5000/api/v1/sem/${id.id}`);
@@ -18,12 +18,30 @@ export default function Semesters() {
     };
 
     useEffect(() => {
+        setLoader(true)
+        setTimeout(()=>{
         getSem();
-    }, []);
+        setLoader(false)    
+        },3000) }, []);
 
     return (
         <>
             <div className="w-100 py-16 px-[15%] mt-0 bg-gray-200 lg:px-[14%] pb-6">
+                {loader ?
+                    <div className='flex flex-row justify-center mt-10 items-center '>
+                        <Puff
+                            height="80"
+                            width="80"
+                            radius={1}
+                            color="#F1C93B"
+                            ariaLabel="puff-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />
+                    </div>
+                    :
+                    <>
                 <h1 className="text-2xl text-center pb-16 underline underline-offset-2 decoration-amber-400 font-semibold">
                     Select Semester
                 </h1>
@@ -40,6 +58,8 @@ export default function Semesters() {
                     ))}                   
 
                 </div>
+                </>
+                }
             </div>
         </>
     );

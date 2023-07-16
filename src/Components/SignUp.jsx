@@ -6,11 +6,11 @@ import { toast } from "react-toastify"
 export default function SignUp() {
 
 
-    const [name, setname] = useState("")
-    const [email, setemail] = useState("")
-    const [username, setusername] = useState("")
-    const [password, setpassword] = useState("")
-    const [cpass, setcpass] = useState("")
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [cpass, setConfPassword] = useState("")
     const navigate = useNavigate();
 
     const handlesubmit = async (e) => {
@@ -25,15 +25,21 @@ export default function SignUp() {
                 cpassword: cpass
             });
             if (data.success) {
-                toast.success(" Registration succesfully ")
+                toast.success("Registration Successfully ! ", {
+                    autoClose: 2000,
+                })
                 navigate("/login")
             }
             else {
-                toast.warn("user already exist")
+                toast.warn("user already exist", {
+                    autoClose: 2000,
+                })
             }
         } catch (error) {
             if (error.response && error.response.data && error.response.data.message) {
-                toast.warn(error.response.data.message);
+                toast.warn(error.response.data.message, {
+                    autoClose: 2000,
+                });
             } else {
                 toast.error("An error occurred:", error.message);
             }
@@ -51,40 +57,41 @@ export default function SignUp() {
                             <form onSubmit={handlesubmit}>
                                 <input
                                     type="text"
-                                    className="w-[80%] border-b-2 border-yellow-200 text-black focus:outline-none focus:border-yellow-400 w-100  focus:bg-white text-lg p-1 placeholder:text-slate-500  mt-3"
+                                    className="w-[80%] border-b-2 border-yellow-200 text-black focus:outline-none focus:border-yellow-400 w-100  focus:bg-white text-lg p-1 placeholder:text-slate-500  mt-3 "
                                     name="fullname"
                                     value={name}
-                                    onChange={(e) => setname(e.target.value)}
-                                    placeholder="Full Name" />
+                                    onChange={(e) => setName(e.target.value)}
+                                    placeholder="Full Name" 
+                                    required/>
                                 <input
                                     type="email"
                                     className="w-[80%] border-b-2 border-yellow-200 text-black focus:outline-none focus:border-yellow-400 w-100  focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="email"
                                     value={email}
-                                    onChange={(e) => setemail(e.target.value)}
-                                    placeholder="Email" />
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Email" required/>
                                 <input
                                     type="text"
                                     className="w-[80%] border-b-2 border-yellow-200 text-black focus:outline-none focus:border-yellow-400 w-100  focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="Username"
                                     maxLength={10}
                                     value={username}
-                                    onChange={(e) => setusername(e.target.value)}
-                                    placeholder="Username" />
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    placeholder="Username" required/>
                                 <input
                                     type="password"
                                     className="w-[80%] border-b-2 border-yellow-200 text-black focus:outline-none focus:border-yellow-400 w-100  focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="fullname"
                                     value={password}
-                                    onChange={(e) => setpassword(e.target.value)}
-                                    placeholder="Password" />
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder="Password" required/>
                                 <input
                                     type="password"
                                     className="w-[80%] border-b-2 border-yellow-200 text-black focus:outline-none focus:border-yellow-400 w-100  focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3"
                                     name="confirmPassword"
                                     value={cpass}
-                                    onChange={(e) => setcpass(e.target.value)}
-                                    placeholder="Confirm Password" />
+                                    onChange={(e) => setConfPassword(e.target.value)}
+                                    placeholder="Confirm Password" required/>
                                 <button className='w-[80%] mt-8 p-2 text-lg bg-yellow-400 hover:bg-yellow-300 rounded-lg'>SignUp</button>
 
                             </form>
