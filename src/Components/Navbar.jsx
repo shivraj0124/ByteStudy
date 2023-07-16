@@ -88,7 +88,7 @@ const Navbar = () => {
                                     <li className='pt-4  text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={() => navigate('/Admin')} >Admin</li>
                                 </div>
                                     <button onClick={handleLogOut} className="w-max mt-16 ml-6 px-6 h-10 rounded-md bg-yellow-300 hover:bg-[#ebeb5a]">
-                                        LogOut
+                                        Logout
                                     </button>
                                 </>
                             ) : (
@@ -99,7 +99,7 @@ const Navbar = () => {
                                     <li className='pt-4 font-bold uppercase text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' onClick={() => navigate('/profile')} >{auth?.user?.username}</li>
                                 </div>
                                     <button onClick={handleLogOut} className="w-max mt-16 ml-6 px-6 h-10 rounded-md bg-yellow-300 hover:bg-[#ebeb5a]">
-                                        LogOut
+                                        Logout
                                     </button>
                                 </>
                             )}
