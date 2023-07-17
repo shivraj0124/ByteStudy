@@ -14,7 +14,7 @@ function About() {
                             <p className='text-xl max-md:text-md text-gray-700 md:mr-[20%] justify-between'><h1 className='text-3xl text-gray-900 font-bold pb-5'>Welcome to ByteStudy ,</h1>Your go-to online resource for GPM.
                                 We provide comprehensive study materials, including detailed notes, question papers, and interactive experiments to help you excel in your studies. Whether you're preparing for exams or looking to enhance your understanding of complex concepts, we've got you covered.
                             </p>
-                            <button className='w-max mt-8 py-2 px-6 bg-yellow-300 rounded-md' onClick={() => navigate('/Departments')}>Explore More</button>
+                            <button className='w-max mt-8 py-2 px-6 bg-yellow-300 hover:bg-yellow-400 rounded-md' onClick={() => navigate('/Departments')}>Explore More</button>
                         </div>
 
                         <div className='mt-8 '>

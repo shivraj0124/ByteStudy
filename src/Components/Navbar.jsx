@@ -23,7 +23,7 @@ const Navbar = () => {
     }
     return (
         <div className='flex justify-between items-center h-20 max-w-[1240px] mx-auto mt-0 px-2 text-black'>
-            <img src={img1} className='h-[30px] md:h-[40px] p-0 md:w-[15%] ' />
+            <img src={img1} onClick={()=>navigate('/')} className='h-[30px] md:h-[40px] p-0 md:w-[15%] cursor-pointer ' />
             <ul className='hidden md:flex'>
                 <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/' >Home</Link>
                 <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/About'>About</Link>
@@ -64,7 +64,7 @@ const Navbar = () => {
                 {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
             </div>
             <ul className={nav ? 'fixed left-0 top-0 w-[80%] h-full border-r ease-in-out duration-300 z-40 bg-gray-200 md:hidden' : 'ease-in-out duration-800 fixed left-[-100%] md:hidden'} onClick={handleNav}>
-                <img src={img1} className='absolute top-4 left-6 h-[30px]' />
+                <img src={img1} onClick={()=>navigate('/')} className='absolute top-4 left-6 h-[30px] cursor-pointer' />
                 <div className={nav ? 'absolute ease-in-out top-20' : 'left-[-100%]'} onClick={handleNav}>
                     <Link to='/'>
                         <li className='pl-8 text-black hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' >Home</li>
