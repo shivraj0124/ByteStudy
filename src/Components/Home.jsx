@@ -2,8 +2,6 @@ import img1 from '../Images/studymaterial.png'
 import img2 from '../Images/notesImg.png'
 import img3 from '../Images/questionPImg.png'
 import img4 from '../Images/experimentsImg.png'
-// import img5 from '../Images/userlog.png'
-// import img6 from '../Images/adminlog.png'
 import { useNavigate } from "react-router-dom"
 export default function Home() {
 
@@ -48,32 +46,8 @@ export default function Home() {
 
 
 
-                {/* Logins */}
-
-
-                {/* <div className='justify-center text-center mt-10' >
-                    <h1 className='text-2xl font-bold m-auto' >Login to ByteStudy</h1>
-                </div>
-
-                <div className='w-[100%]  px-4 bg-white justify-center items-center'>
-                    
-                    <div className='max-w-[1240px] w-100% grid lg:grid-cols-2 md:grid-cols-2 gap-8 items-center mt-24 lg:px-[20%] pb-10'>
-                            <div className='w-[100%] flex flex-col px-4 my-2 pb-2 rounded-lg border border-gray-400 bg-gray-200  hover:bg-yellow-300 '>
-                                <img className='w-[88%] h-[97%] mx-auto mt-5' src={img5} alt="/" />
-                                <h2 className='text-xl  text-center bg-white px-2 mt-[4%] py-2 rounded-md cursor-pointer'>User Login</h2>
-
-                            </div>
-
-                        <div className='w-[100%] flex flex-col px-4  my-2 pb-2 rounded-lg border border-gray-400 bg-gray-200 hover:bg-yellow-300  '>
-                            <img className='w-[100%] h-[100%] mx-auto mt-5' src={img6} alt="/" />
-                            <h2 className='text-xl  text-center bg-white px-2 mt-[4%] py-2 rounded-md cursor-pointer'>Admin Login</h2>
-
-                        </div>
-                    </div> 
-    </div>*/}
+               
             </div >
         </>
     )
 }
-
-// <div className="w-30 h-100 border border-gray-400 bg-gray-300 p-5 py-20 text-2xl text-center rounded-md hover:bg-amber-400 text-amber-400 hover:text-[#27374D] cursor-pointer font-semibold">Semester I</div>

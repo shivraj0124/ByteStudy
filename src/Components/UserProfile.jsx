@@ -3,6 +3,7 @@ import { BsFillBox2HeartFill } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from "../Components/Authcontext";
 import { useCart } from './CartContext';
+import { toast } from 'react-toastify';
 export default function UserProfile() {
     const navigate = useNavigate()
     const [auth, setauth] = useAuth();
@@ -10,7 +11,10 @@ export default function UserProfile() {
 
     const handleMyCart = () => {
         if (notesCart.length === 0 && questionCart.length === 0 && expCart.length === 0) {
-            alert(`Your cart is empty `);
+            // alert('No saved Items');
+            toast.warn('No saved Items',{
+                autoClose:2000,
+            })
 
         } else {
             navigate('/MyCart')
@@ -28,19 +32,19 @@ export default function UserProfile() {
         <>
             <div className="w-[100%] h-full max-sm:px-[5%] px-[10%] py-12 mr-0  pb-72 flex justify-center bg-gray-200"  >
 
-                <div className='max-md:w-[100%] flex flex-col w-max md:px-20   items-center h-max pb-5 text-2xl  pt-10 bg-white rounded-md'>
+                <div className='max-md:w-[100%] flex flex-col w-max md:px-20   items-center h-max pb-5 text-2xl  pt-10 bg-white shadow-xl rounded-md'>
                     <div className='flex flex-col justify-center items-center' >
                         <FaUserCircle size={100} />
                         <li className='list-none font-bold uppercase'>{auth.user.username}</li>
                     </div>
 
-                    <div className='mt-3 font-normal text-xl text-gray-500 px-1'>
+                    <div className='mt-3 font-normal text-xl text-gray-800 px-1'>
                         <hr className='text-gray-400 h-[1px] bg-gray-300' />
                         <ul className='mt-7'>
-                            <li className='mt-2'><b>Name:</b> <span className='text-gray-500' >{auth.user.name}</span></li>
+                            <li className='mt-2'><b>Name:</b> <span className='text-gray-800' >{auth.user.name}</span></li>
                             <li className='mt-2'><b>Email:</b> <span >{auth.user.email}</span></li>
-                            <div className='flex mt-2 hover:text-yellow-600 cursor-pointer' onClick={handleMyCart}>
-                                <li className='text-bold' >My Cart </li>
+                            <div className='flex mt-2 text-yellow-600 hover:text-yellow-700 cursor-pointer' onClick={handleMyCart}>
+                                <li className='text-bold ' >Saved items</li>
                                 <li className='mt-2 ml-2'>
                                     <BsFillBox2HeartFill size={20} />
                                 </li>

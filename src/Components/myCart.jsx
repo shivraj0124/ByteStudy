@@ -4,27 +4,33 @@ import img3 from '../Images/questionPImg.png'
 import img4 from '../Images/experimentsImg.png'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from './CartContext'
-
+import {toast} from 'react-toastify'
 export default function MyCart(){
     const { notesCart, questionCart, expCart } = useCart()
     const navigate=useNavigate()
     const NoteCart = () => {
         if(notesCart.length === 0){
-            alert(`You haven't saved any note !`)
+            toast.warn(`You haven't saved any note !`, {
+                autoClose: 200,
+            })
         }else{
             navigate('/MyCart/Notes')
         }
     }
     const QuestionCart = () => {
         if(questionCart.length === 0){
-            alert(`You haven't saved any Question Paper !`)
+            toast.warn(`You haven't saved any Question Paper !`,{
+                autoClose:200,
+            })
         } else {
             navigate('/MyCart/Qp')
         }
     }
     const ExpCart = () => {
         if(expCart.length === 0){
-            alert(`You haven't saved any Experiment !`)
+            toast.warn(`You haven't saved any Experiment`, {
+                autoClose: 2000,
+            })
         } else {
             navigate('/MyCart/Experiments')
         }

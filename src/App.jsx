@@ -4,6 +4,8 @@ import './App.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Home from "./Components/Home"
+import About from './Components/About'
+import Contact from './Components/Contact'
 import Footer from './Components/Footer'
 import Departments from './Components/Departments'
 import Semesters from './Components/Semesters'
@@ -36,6 +38,8 @@ function App() {
               <Routes>
                 <Route path='/' element={<Layout />}>
                   <Route exact path="/" element={<Home />}></Route>
+                  <Route exact path='/About' element={<About />}></Route>
+                  <Route exact path='/Contact' element={<Contact />}></Route>
                   <Route exact path="/Departments" element={<Departments />}></Route>
                   <Route exact path="/Semesters/:id" element={<Semesters />}></Route>
                   <Route exact path="/Subjects/:id" element={<Subjects />}></Route>

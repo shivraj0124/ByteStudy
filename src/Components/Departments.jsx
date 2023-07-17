@@ -28,10 +28,10 @@ export default function Departments() {
       setLoader(false)
     }
     else {
-      toast.success('Login First !',{
+      toast.warn('Login First !',{
         autoClose:2000,
-      })
-      navigate('/login')
+      });
+      navigate('/login');
     }
   },3000)
 

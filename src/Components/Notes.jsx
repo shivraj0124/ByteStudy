@@ -7,11 +7,13 @@ import { Tooltip as ReactTooltip } from 'react-tooltip'
 import { toast } from 'react-toastify'
 import {useAuth} from './Authcontext'
 import { useCart } from "./CartContext";
+import { Puff } from "react-loader-spinner";
 export default function Notes() {
     const [auth, setauth] = useAuth();
     const {notesCart, setNotesCart}=useCart();
     const [notes, setnotes] = useState([])
     const subid = useParams();
+    const [loader,setLoader]=useState(false)
 
     const fetchnotes = async () => {
         try {
@@ -24,7 +26,11 @@ export default function Notes() {
     };
     
     useEffect(() => {
+        setLoader(true)
+        setTimeout(() => {
             fetchnotes();
+            setLoader(false)
+        },3000)
         
     },[]);
     const handleSaveBtn = (e) => {
@@ -48,6 +54,21 @@ export default function Notes() {
     return (
         <>
             <div className="w-100 mt-10 max-md:mt-12 px-[10%] lg:px-[14%] pb-6">
+                {loader ?
+                    <div className='flex flex-row justify-center mt-10 items-center '>
+                        <Puff
+                            height="80"
+                            width="80"
+                            radius={1}
+                            color="#F1C93B"
+                            ariaLabel="puff-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />
+                    </div>
+                    :
+                    <>
                 <h1 className="text-2xl pb-16 underline underline-offset-2 decoration-amber-400 font-semibold text-center">
                     Notes
                 </h1>
@@ -72,6 +93,8 @@ export default function Notes() {
                         </>
                     ))}
                 </div >
+                </>
+                }
             </div>
             <ReactTooltip
                 id="my-tooltip"

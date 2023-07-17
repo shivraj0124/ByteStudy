@@ -26,8 +26,8 @@ const Navbar = () => {
             <img src={img1} className='h-[30px] md:h-[40px] p-0 md:w-[15%] ' />
             <ul className='hidden md:flex'>
                 <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/' >Home</Link>
-                <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>About</Link>
-                <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer'>Contact</Link>
+                <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/About'>About</Link>
+                <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Contact'>Contact</Link>
                 {!auth?.user ? (
                     <Link className='p-4 hover:underline hover:underline-offset-4 decoration-yellow-400 cursor-pointer' to='/Login' >Login</Link>
                 ) : (

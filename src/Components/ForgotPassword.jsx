@@ -46,7 +46,8 @@ export default function ForgotPassword() {
                                     name="email"
                                     value={email}
                                     onChange={(e) => setemail(e.target.value)}
-                                    placeholder="Email" />
+                                    placeholder="Email" 
+                                    required/>
 
                                 <input
                                     type="password"
@@ -54,14 +55,16 @@ export default function ForgotPassword() {
                                     name="fullname"
                                     value={newpassword}
                                     onChange={(e) => setnewpassword(e.target.value)}
-                                    placeholder="New Password" />
+                                    placeholder="New Password" 
+                                    required/>
                                 <input
                                     type="password"
                                     className="w-[80%] border-b-2 border-blue-300  text-black focus:outline-none focus:border-yellow-400 w-100  focus:bg-white text-lg p-1 placeholder:text-slate-500 mt-3 md:mt-5"
                                     name="fullname"
                                     value={ConfPassword}
                                     onChange={(e) => setConfPassword(e.target.value)}
-                                    placeholder="Confirm Password" />
+                                    placeholder="Confirm Password" 
+                                    required/>
                                 <button className='w-[80%] mt-12 p-2 text-lg bg-yellow-400 hover:bg-yellow-300 rounded-lg'  >Reset</button>
 
                             </form>
